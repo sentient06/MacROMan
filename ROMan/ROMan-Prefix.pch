@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'ROMan' target in the 'ROMan' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
