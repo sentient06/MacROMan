@@ -48,7 +48,7 @@
     
     NSNumber * size = [[NSNumber alloc] initWithUnsignedLong:len/2^20];
     
-    checksum       = [NSString stringWithFormat: @"%X", ntohl(*(uint32 *)byteData)];
+    checksum       = [NSString stringWithFormat: @"Checksum: %X", ntohl(*(uint32 *)byteData)];
     vMac           = NO;
     BasiliskII     = NO;
     Sheepshaver    = NO;
@@ -62,12 +62,12 @@
             
             // 64 KB
         case 0x28BA61CE:
-            fileDetails = @"Identified as Mac 128";
+            fileDetails = @"Macintosh 128";
             comments = @"First Macintosh ever made";
             processor68000 = YES;
             break;
         case 0x28BA4E50:
-            fileDetails = @"Identified as Mac 512K";
+            fileDetails = @"Macintosh 512K";
             comments = @"Second Macintosh ever made";
             processor68000 = YES;
             break;
@@ -75,17 +75,17 @@
             
             // 128 KB
         case 0x4D1EEEE1:
-            fileDetails = @"Identified as Mac Plus v1 Lonely Hearts";
+            fileDetails = @"Macintosh Plus v1 Lonely Hearts";
             comments = @"This ROM was buggy and had 2 revisions\nv3 is more recommended";
             processor68000 = YES;
             break;
         case 0x4D1EEAE1:
-            fileDetails = @"Identified as Mac Plus v2 Lonely Heifers";
+            fileDetails = @"Macintosh Plus v2 Lonely Heifers";
             comments = @"This ROM was the second revision and still had some bugs\nv3 is more recommended";
             processor68000 = YES;
             break;
         case 0x4D1F8172:
-            fileDetails = @"Identified as Mac Plus v3 Loud Harmonicas";
+            fileDetails = @"Macintosh Plus v3 Loud Harmonicas";
             comments = @"Best Mac Plus ROM, second revision from the original";
             vMac = YES;
             processor68000 = YES;
@@ -94,27 +94,27 @@
             
             // 256 KB
         case 0x97851DB6:
-            fileDetails = @"Identified as Mac II v1";
+            fileDetails = @"Macintosh II v1";
             comments = @"First Mac II ROM, had a memory problem\nThis one is rare!";
             processor68020 = YES;
             break;
         case 0xB2E362A8:
-            fileDetails = @"Identified as Mac SE";
+            fileDetails = @"Macintosh SE";
             comments = @"";
             processor68000 = YES;
             break;
         case 0x9779D2C4:
-            fileDetails = @"Identified as Mac II v2";
+            fileDetails = @"Macintosh II v2";
             comments = @"Mac II ROM's revision";
             processor68020 = YES;
             break;
         case 0xB306E171:
-            fileDetails = @"Identified as Mac SE FDHD";
+            fileDetails = @"Macintosh SE FDHD";
             comments = @"FDHD stands for 'Floppy Disk High Density'\nThis mac was later called Macintosh SE Superdrive";
             processor68000 = YES;
             break;
         case 0x97221136:
-            fileDetails = @"Identified as Mac IIx or IIcx or SE/30"; //Identified as Mac IIcx
+            fileDetails = @"Macintosh IIx or IIcx or SE/30"; //Mac IIcx
             //IIx = 16 MHz Motorola 68020 CPU and 68881 FPU of the II with a 68030 CPU and 68882 FPU (running at the same clock speed)
             //Spock / Stratos
             //IIcx = c for compact
@@ -124,18 +124,18 @@
             break;
             // no basilisk
         case 0x96CA3846:
-            fileDetails = @"Identified as Macintosh Portable";
+            fileDetails = @"Macintosh Portable";
             comments = @"One of the first 'laptops'!";
             processor68000 = YES;
             break;
         case 0xA49F9914:
-            fileDetails = @"Identified as Macintosh Classic (XO)";
+            fileDetails = @"Macintosh Classic (XO)";
             comments = @"From Mac Classic with XO ROMDisk: It has the ability to boot from ROM by holding down cmd+opt+x+o at startup.\nLimited support in Basilisk II.";//Classic emulation is broken on Basilisk
             vMac = YES;
             processor68000 = YES;
             break;
         case 0x96645F9C:
-            fileDetails = @"Identified as Macintosh PowerBook 100";
+            fileDetails = @"Macintosh PowerBook 100";
             comments = @"";
             processor68030 = YES;
             processor68040 = YES;
@@ -143,13 +143,13 @@
 
             // 512 KB
         case 0x4147DD77:
-            fileDetails = @"Identified as Mac IIfx";
+            fileDetails = @"Macintosh IIfx";
             comments = @"Known as Stealth, Blackbird, F-16, F-19, Four Square, IIxi, Zone 5 and Weed-Whacker.\nEmulation requires FPU and AppleTalk is not supported.";
             BasiliskII = YES;
             processor68030 = YES;
             break;
         case 0x350EACF0:
-            fileDetails = @"Identified as Mac LC (Pizza box)";
+            fileDetails = @"Macintosh LC (Pizza box)";
             comments = @"AppleTalk is not supported in Basilisk.";
             BasiliskII = YES;
             processor68020 = YES;
@@ -159,7 +159,7 @@
         case 0x3193670E:
             //            if (512k) {
             
-            fileDetails = @"Identified as Mac Classic II";
+            fileDetails = @"Macintosh Classic II";
             comments = @"Emulation may require the FPU and AppleTalk may not be supported.";
             comments = [NSString stringWithFormat: @"Size is %ul", [size intValue]]; //3193670E
             
@@ -174,7 +174,7 @@
             
             break;            
         case 0x368CADFE:
-            fileDetails = @"Identified as Mac IIci";
+            fileDetails = @"Macintosh IIci";
             comments = @"In Basilisk, FPU must be enabled and appleTalk is not supported.\nThis is a 32-bit clean ROM.";
             BasiliskII = YES;
 //            processor68020 = YES;
@@ -182,7 +182,7 @@
 //            processor68040 = YES;
             break;
         case 0x36B7FB6C:
-            fileDetails = @"Identified as Mac IIsi";
+            fileDetails = @"Macintosh IIsi";
             comments = @"In Basilisk, AppleTalk is not supported.";
             BasiliskII = YES;
             processor68020 = YES;
@@ -199,12 +199,12 @@
             break;
             //------------------------------------------------
         case 0x35C28C8F: //very strange didn't find it, called IIxi
-            fileDetails = @"Identified as Mac IIx";
+            fileDetails = @"Macintosh IIx";
             comments = @"AppleTalk may not be supported.";
             BasiliskII = YES;
             break;
         case 0x4957EB49: 
-            fileDetails = @"Identified as Mac IIvx (Brazil) or IIvi/Performa 600";
+            fileDetails = @"Mac IIvx (Brazil) or IIvi/Performa 600";
             comments = @"Mac IIvx was the last of Mac II series.\nAppleTalk may not be supported for emulation.";
             BasiliskII = YES;
             processor68030 = YES;
@@ -215,63 +215,63 @@
             // Things get messy here
             // 1024 KB
         case 0x420DBFF3:
-            fileDetails = @"Identified as Quadra 700/900 or PowerBook 140/170";
+            fileDetails = @"Quadra 700/900 or PowerBook 140/170";
             comments = @"AppleTalk is not supported on Basilisk II.\nThis is the worst known 1MB ROM.";
             BasiliskII = YES;
             processor68040 = YES;
             break;
         case 0x3DC27823:
-            fileDetails = @"Identified as Macintosh Quadra 950";
+            fileDetails = @"Macintosh Quadra 950";
             comments = @"AppleTalk is not supported on Basilisk II.";
             BasiliskII = YES;
             processor68040 = YES;
             break;
             //====
         case 0x49579803: //very strange didn't find it, called IIvx //49579803
-            fileDetails = @"Identified as Mac IIvx ?"; //Again? Brazil?
+            fileDetails = @"Macintosh IIvx ?"; //Again? Brazil?
             BasiliskII = YES;
             processor68020 = YES;
             processor68030 = YES;
             break;
         case 0xE33B2724:
-            fileDetails = @"Identified as Powerbook 160/165/165c/180/180c";
+            fileDetails = @"Powerbook 160/165/165c/180/180c";
             processor68020 = YES;
             processor68030 = YES;
             processor68040 = YES;
             break;
         case 0xECFA989B:
-            fileDetails = @"Identified as Powerbook 210/230/250";
+            fileDetails = @"Powerbook 210/230/250";
             processor68030 = YES;
             break;
         case 0xEC904829:
-            fileDetails = @"Identified as Mac LC III";
+            fileDetails = @"Macintosh LC III";
             BasiliskII = YES;
             processor68030 = YES;
             break;
         case 0xECBBC41C:
-            fileDetails = @"Identified as Mac LCIII/LCIII+ or Performa 460";
+            fileDetails = @"Macintosh LCIII/LCIII+ or Performa 460";
             BasiliskII = YES;
             processor68030 = YES;
             break;
         case 0xECD99DC0:
-            fileDetails = @"Identified as Mac Color Classic / Performa 250";
+            fileDetails = @"Macintosh Color Classic / Performa 250";
             BasiliskII = YES;
             processor68020 = YES;
             processor68030 = YES;
             processor68040 = YES;
             break;
         case 0xF1A6F343:
-            fileDetails = @"Identified as Quadra/Centris 610 or 650";
+            fileDetails = @"Quadra/Centris 610 or 650";
             BasiliskII = YES;
             processor68040 = YES;
             break;
         case 0xF1ACAD13:	// Mac Quadra 650
-            fileDetails = @"Identified as Quadra/Centris 610 or 650 or 800";
+            fileDetails = @"Quadra/Centris 610 or 650 or 800";
             BasiliskII = YES;
             processor68040 = YES;
             break;
         case 0x0024D346:
-            fileDetails = @"Identified as Powerbook Duo 270C";
+            fileDetails = @"Powerbook Duo 270C";
             processor68030 = YES;
             break;
         case 0xEDE66CBD:
@@ -286,21 +286,21 @@
             processor68040 = YES; //FPU?
             break;
         case 0x015621D7:
-            fileDetails = @"Identified as Powerbook Duo 280 or 280C";
+            fileDetails = @"Powerbook Duo 280 or 280C";
             processor68030 = YES;
             break;
         case 0x06684214:
-            fileDetails = @"Identified as LC/Quadra/Performa 630";
+            fileDetails = @"LC/Quadra/Performa 630";
             comments = @"Codename Crusader";
             BasiliskII = YES;
             processor68040 = YES;
             break;
         case 0xFDA22562:
-            fileDetails = @"Identified as Powerbook 150";
+            fileDetails = @"Powerbook 150";
             processor68030 = YES;
             break;
         case 0x064DC91D:
-            fileDetails = @"Identified as LC/Performa 580/588";
+            fileDetails = @"LC/Performa 580/588";
             comments = @"AppleTalk is reported to work in Basilisk II.";
             BasiliskII = YES;
             processor68040 = YES;
@@ -309,7 +309,7 @@
         // 2MB and 3MB ROMs
         // 2048 KB
         case 0xB6909089:
-            fileDetails = @"PowerBook 520 520c 540 540c";
+            fileDetails = @"PowerBook 520/520c/540/540c";
             comments = @"2MB ROM image. =D";
             //68LC040
             break;
@@ -328,29 +328,77 @@
             
         //------------------------------------------------
         // 4MB
+        case 0x9FEB69B3:
+            fileDetails = @"Power Mac 6100/7100/8100";
+            processorPPC   = YES;
+            break;
+        case 0x9C7C98F7:
+            fileDetails = @"Workgroup Server 9150 80MHz";
+            processorPPC   = YES;
+            break;
+        case 0x9B7A3AAD:
+            fileDetails = @"Power Mac 7100 (newer)";
+            processorPPC   = YES;
+            break;
+        case 0x63ABFD3F:
+            fileDetails = @"Power Mac & Performa 5200/5300/6200/6300";
+            processorPPC   = YES;
+            break;
+        case 0x9B037F6F:
+            fileDetails = @"Workgroup Server 9150 120MHz";
+            processorPPC   = YES;
+            break;
+        case 0x83C54F75:
+            fileDetails = @"PowerBook 2300 & PB5x0 PPC Upgrade";
+            processorPPC   = YES;
+            break;
+        case 0x9630C68B:
+            fileDetails = @"Power Mac 7200/7500/8500/9500 v2";
+            processorPPC   = YES;
+            break;
         case 0x96CD923D:
-            fileDetails = @"Probably PPC Quadra Power Mac 7200&7500&8500&9500 v1";
+            fileDetails = @"Power Mac 7200/7500/8500/9500 v1"; //Probably PPC Quadra
             comments = @"Runs on Sheepshaver";
             Sheepshaver = YES;
+            processorPPC   = YES;
             break;
-//            1994-03 - 9FEB69B3 - Power Mac 6100 & 7100 & 8100.ROM            
-//            1994-04 - 9C7C98F7 - Workgroup Server 9150 80MHz.ROM
-//            1995-01 - 9B7A3AAD - Power Mac 7100 (newer).ROM
-//            1995-04 - 63ABFD3F - Power Mac & Performa 5200,5300,6200,6300.ROM
-//            1995-04 - 9B037F6F - Workgroup Server 9150 120MHz.ROM
-//            1995-08 - 83C54F75 - Powerbook 2300 & PB5x0 PPC Upgrade.ROM
-//            1995-08 - 9630C68B - Power Mac 7200&7500&8500&9500 v2.ROM
-//            1995-08 - 96CD923D - Power Mac 7200&7500&8500&9500 v1.ROM
-//            1996-08 - 6F5724C0 - PowerMac, Performa 6400.ROM
-//            1996-10 - 83A21950 - PowerBook 1400, 1400cs.ROM
-//            1997-02 - 6E92FE08 - Power Mac 6500.ROM
-//            1997-02 - 960E4BE9 - Power Mac 7300 & 7600 & 8600 & 9600 (v1).ROM
-//            1997-02 - 960FC647 - Power Mac 8600 & 9600 (v2).ROM
-//            1997-11 - 78F57389 - Power Mac G3 (v3).ROM
-//            1997-11 - 79D68D63 - Power Mac G3 desktop.ROM
-//            1998-03 - CBB01212 - PowerBook G3 Wallstreet.ROM
-//            1998-08 - B46FFB63 - PowerBook G3 Wallstreet PDQ.ROM
-            
+        case 0x6F5724C0:
+            fileDetails = @"PowerM ac/Performa 6400";
+            processorPPC   = YES;
+            break;
+        case 0x83A21950:
+            fileDetails = @"PowerBook 1400, 1400cs";
+            processorPPC   = YES;
+            break;
+        case 0x6E92FE08:
+            fileDetails = @"Power Mac 6500";
+            processorPPC   = YES;
+            break;
+        case 0x960E4BE9:
+            fileDetails = @"Power Mac 7300/7600/8600/9600 (v1)";
+            processorPPC   = YES;
+            break;
+        case 0x960FC647:
+            fileDetails = @"Power Mac 8600 or 9600 (v2)";
+            processorPPC   = YES;
+            break;
+        case 0x78F57389:
+            fileDetails = @"Power Mac G3 (v3)";
+            processorPPC   = YES;
+            break;
+        case 0x79D68D63:
+            fileDetails = @"Power Mac G3 desktop";
+            processorPPC   = YES;
+            break;
+        case 0xCBB01212:
+            fileDetails = @"PowerBook G3 Wallstreet";
+            processorPPC   = YES;
+            break;
+        case 0xB46FFB63:
+            fileDetails = @"PowerBook G3 Wallstreet PDQ";
+            processorPPC   = YES;
+            break;
+      
             
             
         case 0x3C434852:
