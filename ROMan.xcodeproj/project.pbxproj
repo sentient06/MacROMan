@@ -12,11 +12,11 @@
 		81451AB914FB973000644AF4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 81451AB714FB973000644AF4 /* InfoPlist.strings */; };
 		81451ABB14FB973000644AF4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 81451ABA14FB973000644AF4 /* main.m */; };
 		81451ABF14FB973000644AF4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 81451ABD14FB973000644AF4 /* Credits.rtf */; };
-		81451AC214FB973000644AF4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 81451AC114FB973000644AF4 /* AppDelegate.m */; };
 		81451AC514FB973000644AF4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81451AC314FB973000644AF4 /* MainMenu.xib */; };
 		81451ACD14FB977600644AF4 /* FileHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 81451ACC14FB977600644AF4 /* FileHandler.m */; };
+		8160F98417E9A45300DED4C9 /* ROMan.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8160F98317E9A45300DED4C9 /* ROMan.icns */; };
+		8160F98617E9A4A400DED4C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8160F98517E9A4A400DED4C9 /* AppDelegate.m */; };
 		819523C1150A042200114146 /* DropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 819523C0150A042200114146 /* DropView.m */; };
-		819523C9150A32C200114146 /* ROMan.icns in Resources */ = {isa = PBXBuildFile; fileRef = 819523C8150A32C200114146 /* ROMan.icns */; };
 		81A684A0151A60BB000B4528 /* RomImageDocument.icns in Resources */ = {isa = PBXBuildFile; fileRef = 81A6849E151A60BB000B4528 /* RomImageDocument.icns */; };
 		81A684A1151A60BB000B4528 /* Unsupported.icns in Resources */ = {isa = PBXBuildFile; fileRef = 81A6849F151A60BB000B4528 /* Unsupported.icns */; };
 		81A684B1151AA088000B4528 /* GenericQuestionMarkIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 81A684B0151AA088000B4528 /* GenericQuestionMarkIcon.icns */; };
@@ -36,13 +36,13 @@
 		81451ABC14FB973000644AF4 /* ROMan-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ROMan-Prefix.pch"; sourceTree = "<group>"; };
 		81451ABE14FB973000644AF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		81451AC014FB973000644AF4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		81451AC114FB973000644AF4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		81451AC414FB973000644AF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		81451ACB14FB977600644AF4 /* FileHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHandler.h; sourceTree = "<group>"; };
 		81451ACC14FB977600644AF4 /* FileHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHandler.m; sourceTree = "<group>"; };
+		8160F98317E9A45300DED4C9 /* ROMan.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ROMan.icns; sourceTree = "<group>"; };
+		8160F98517E9A4A400DED4C9 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		819523BF150A042200114146 /* DropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropView.h; sourceTree = "<group>"; };
 		819523C0150A042200114146 /* DropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropView.m; sourceTree = "<group>"; };
-		819523C8150A32C200114146 /* ROMan.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ROMan.icns; sourceTree = SOURCE_ROOT; };
 		81A6849E151A60BB000B4528 /* RomImageDocument.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = RomImageDocument.icns; sourceTree = "<group>"; };
 		81A6849F151A60BB000B4528 /* Unsupported.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Unsupported.icns; sourceTree = "<group>"; };
 		81A684B0151AA088000B4528 /* GenericQuestionMarkIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = GenericQuestionMarkIcon.icns; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				81A6849F151A60BB000B4528 /* Unsupported.icns */,
-				819523C8150A32C200114146 /* ROMan.icns */,
+				8160F98317E9A45300DED4C9 /* ROMan.icns */,
 				81A6849E151A60BB000B4528 /* RomImageDocument.icns */,
 				81A684B0151AA088000B4528 /* GenericQuestionMarkIcon.icns */,
 			);
@@ -135,7 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				81451AC014FB973000644AF4 /* AppDelegate.h */,
-				81451AC114FB973000644AF4 /* AppDelegate.m */,
+				8160F98517E9A4A400DED4C9 /* AppDelegate.m */,
 				819523BF150A042200114146 /* DropView.h */,
 				819523C0150A042200114146 /* DropView.m */,
 			);
@@ -215,10 +215,10 @@
 				81451AB914FB973000644AF4 /* InfoPlist.strings in Resources */,
 				81451ABF14FB973000644AF4 /* Credits.rtf in Resources */,
 				81451AC514FB973000644AF4 /* MainMenu.xib in Resources */,
-				819523C9150A32C200114146 /* ROMan.icns in Resources */,
 				81A684A0151A60BB000B4528 /* RomImageDocument.icns in Resources */,
 				81A684A1151A60BB000B4528 /* Unsupported.icns in Resources */,
 				81A684B1151AA088000B4528 /* GenericQuestionMarkIcon.icns in Resources */,
+				8160F98417E9A45300DED4C9 /* ROMan.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,10 +230,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				81451ABB14FB973000644AF4 /* main.m in Sources */,
-				81451AC214FB973000644AF4 /* AppDelegate.m in Sources */,
 				81451ACD14FB977600644AF4 /* FileHandler.m in Sources */,
 				819523C1150A042200114146 /* DropView.m in Sources */,
 				8131F93A150E46B40030DC42 /* FileObject.m in Sources */,
+				8160F98617E9A4A400DED4C9 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
