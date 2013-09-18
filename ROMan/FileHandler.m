@@ -333,6 +333,25 @@
             comments = @"Runs on Sheepshaver";
             Sheepshaver = YES;
             break;
+//            1994-03 - 9FEB69B3 - Power Mac 6100 & 7100 & 8100.ROM            
+//            1994-04 - 9C7C98F7 - Workgroup Server 9150 80MHz.ROM
+//            1995-01 - 9B7A3AAD - Power Mac 7100 (newer).ROM
+//            1995-04 - 63ABFD3F - Power Mac & Performa 5200,5300,6200,6300.ROM
+//            1995-04 - 9B037F6F - Workgroup Server 9150 120MHz.ROM
+//            1995-08 - 83C54F75 - Powerbook 2300 & PB5x0 PPC Upgrade.ROM
+//            1995-08 - 9630C68B - Power Mac 7200&7500&8500&9500 v2.ROM
+//            1995-08 - 96CD923D - Power Mac 7200&7500&8500&9500 v1.ROM
+//            1996-08 - 6F5724C0 - PowerMac, Performa 6400.ROM
+//            1996-10 - 83A21950 - PowerBook 1400, 1400cs.ROM
+//            1997-02 - 6E92FE08 - Power Mac 6500.ROM
+//            1997-02 - 960E4BE9 - Power Mac 7300 & 7600 & 8600 & 9600 (v1).ROM
+//            1997-02 - 960FC647 - Power Mac 8600 & 9600 (v2).ROM
+//            1997-11 - 78F57389 - Power Mac G3 (v3).ROM
+//            1997-11 - 79D68D63 - Power Mac G3 desktop.ROM
+//            1998-03 - CBB01212 - PowerBook G3 Wallstreet.ROM
+//            1998-08 - B46FFB63 - PowerBook G3 Wallstreet PDQ.ROM
+            
+            
             
         case 0x3C434852:
             fileDetails = @"The famous New World ROM from Apple's update";
@@ -371,6 +390,18 @@
             }
             break;
     }
+    //http://www.jagshouse.com/rom.html
+    //http://mess.redump.net/mess/driver_info/mac_technical_notes
+    //http://minivmac.sourceforge.net/mac68k.html
+    //http://www.emulators.com/softmac.htm
+    //http://www.theoldcomputer.com/roms/index.php?folder=BIOS-System-Boot/Apple
+    
+    //http://support.apple.com/kb/TA29027?viewlocale=en_US&locale=en_US
+    //http://macintoshgarden.org/forum/project-looking-mac-roms
+    //http://minivmac.sourceforge.net/extras/egretrom.html
+    //https://en.wikipedia.org/wiki/Macintosh_Performa
+    //https://en.wikipedia.org/wiki/Timeline_of_Apple_Macintosh_models
+    
     
     [size release];
     
