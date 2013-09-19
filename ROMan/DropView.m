@@ -116,7 +116,7 @@
 
     NSString *pathExtension = [[urls objectAtIndex:0] pathExtension];
     
-    if ([[pathExtension lowercaseString]    isEqualTo:@"rom"] ) {
+    if ([[pathExtension lowercaseString] isEqualTo:@"rom"] ) {
         [self setImage:[NSImage imageNamed:@"RomImageDocument.icns"]];
         
         FileHandler * aFileHandler = [[FileHandler alloc] init];
@@ -125,6 +125,17 @@
         [[NSApp delegate] setDetails:[aFileHandler fileDetails]];
         [[NSApp delegate] setComments:[aFileHandler comments]];
         [[NSApp delegate] setChecksum:[aFileHandler checksum]];
+        
+        int emulatorValue = 0;
+        
+        if ([aFileHandler vMac] && [aFileHandler BasiliskII] ) emulatorValue = 3;
+        else if ([aFileHandler vMac]       ) emulatorValue = 1;
+        else if ([aFileHandler BasiliskII] ) emulatorValue = 2;
+        else if ([aFileHandler Sheepshaver]) emulatorValue = 4;
+
+        [[NSApp delegate] setSupportedEmulators:[NSNumber numberWithInt:emulatorValue]];
+        [[NSApp delegate] setMoreInfo:[aFileHandler moreInfo]];
+            
         
         [aFileHandler release];
         

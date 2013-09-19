@@ -34,7 +34,7 @@
 
 @implementation FileHandler
 
-@synthesize fileDetails, comments, checksum;
+@synthesize fileDetails, comments, checksum, moreInfo;
 @synthesize vMac, BasiliskII, Sheepshaver, processor68000, processor68020, processor68030, processor68040, processorPPC;
 
 - (void) readRomFileFrom:(NSString*)filePath {
@@ -57,18 +57,19 @@
     processor68030 = NO;
     processor68040 = NO;
     processorPPC   = NO;
+    moreInfo       = @"";
     
     switch( ntohl(*(uint32 *)byteData) ) {
             
             // 64 KB
         case 0x28BA61CE:
             fileDetails = @"Macintosh 128";
-            comments = @"First Macintosh ever made";
+            comments = @"First Macintosh ever made.\nThis ROM can't be used on emulation.";
             processor68000 = YES;
             break;
         case 0x28BA4E50:
             fileDetails = @"Macintosh 512K";
-            comments = @"Second Macintosh ever made";
+            comments = @"Second Macintosh ever made.\nThis ROM can't be used on emulation.";
             processor68000 = YES;
             break;
             // no basilisk
@@ -76,17 +77,18 @@
             // 128 KB
         case 0x4D1EEEE1:
             fileDetails = @"Macintosh Plus v1 Lonely Hearts";
-            comments = @"This ROM was buggy and had 2 revisions\nv3 is more recommended";
+            comments = @"This ROM was buggy and had 2 revisions!\nvMac can't boot from it.\nThe second revision (v3) is more recommended.";
             processor68000 = YES;
             break;
         case 0x4D1EEAE1:
             fileDetails = @"Macintosh Plus v2 Lonely Heifers";
-            comments = @"This ROM was the second revision and still had some bugs\nv3 is more recommended";
+            comments = @"This ROM was the first revision and still had some bugs.\nv3 is more recommended.";
+            vMac = YES;
             processor68000 = YES;
             break;
         case 0x4D1F8172:
             fileDetails = @"Macintosh Plus v3 Loud Harmonicas";
-            comments = @"Best Mac Plus ROM, second revision from the original";
+            comments = @"Best Mac Plus ROM, second revision from the original.\nGood for vMac.";
             vMac = YES;
             processor68000 = YES;
             break;
@@ -95,21 +97,21 @@
             // 256 KB
         case 0x97851DB6:
             fileDetails = @"Macintosh II v1";
-            comments = @"First Mac II ROM, had a memory problem\nThis one is rare!";
+            comments = @"First Mac II ROM, had a memory problem\nThis one is rare!\nvMac won't boot it.";//bug
             processor68020 = YES;
             break;
         case 0xB2E362A8:
-            fileDetails = @"Macintosh SE";
+            fileDetails = @"Macintosh SE"; //no checksum
             comments = @"";
             processor68000 = YES;
             break;
         case 0x9779D2C4:
-            fileDetails = @"Macintosh II v2";
+            fileDetails = @"Macintosh II v2"; //no checksum
             comments = @"Mac II ROM's revision";
             processor68020 = YES;
             break;
         case 0xB306E171:
-            fileDetails = @"Macintosh SE FDHD";
+            fileDetails = @"Macintosh SE FDHD"; //no checksum
             comments = @"FDHD stands for 'Floppy Disk High Density'\nThis mac was later called Macintosh SE Superdrive";
             processor68000 = YES;
             break;
@@ -124,7 +126,7 @@
             break;
             // no basilisk
         case 0x96CA3846:
-            fileDetails = @"Macintosh Portable";
+            fileDetails = @"Macintosh Portable"; //vmac no checksum
             comments = @"One of the first 'laptops'!";
             processor68000 = YES;
             break;

@@ -40,7 +40,8 @@
 @property (assign) IBOutlet NSWindow * window;
 
 @property (copy) NSMutableArray * listOfFiles;
-@property (copy) NSString * details, * comments, * checksum;
+@property (copy) NSString * details, * comments, * checksum, * moreInfo;
+@property (assign) NSNumber * supportedEmulators;
 @property BOOL vMac, BasiliskII, Sheepshaver;
 
 - (void)setDetails:(NSString*)newDetails AndComments:(NSString *)newComments;

@@ -37,7 +37,7 @@
 
 }
 
-@property (copy) NSString * fileDetails, * comments, * checksum;
+@property (copy) NSString * fileDetails, * comments, * checksum, * moreInfo;
 @property BOOL vMac, BasiliskII, Sheepshaver, processor68000, processor68020, processor68030, processor68040, processorPPC;
 
 - (void) readRomFileFrom:(NSString*)filePath;
