@@ -14,7 +14,6 @@
 		81451ABF14FB973000644AF4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 81451ABD14FB973000644AF4 /* Credits.rtf */; };
 		81451AC514FB973000644AF4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81451AC314FB973000644AF4 /* MainMenu.xib */; };
 		81451ACD14FB977600644AF4 /* FileHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 81451ACC14FB977600644AF4 /* FileHandler.m */; };
-		8160F98417E9A45300DED4C9 /* ROMan.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8160F98317E9A45300DED4C9 /* ROMan.icns */; };
 		8160F98617E9A4A400DED4C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8160F98517E9A4A400DED4C9 /* AppDelegate.m */; };
 		8189729B17EB39C400BDE239 /* vMac.png in Resources */ = {isa = PBXBuildFile; fileRef = 8189729A17EB39C400BDE239 /* vMac.png */; };
 		818972A317EB39FC00BDE239 /* EmulatorIconValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 818972A217EB39FC00BDE239 /* EmulatorIconValueTransformer.m */; };
@@ -26,12 +25,13 @@
 		81A684A1151A60BB000B4528 /* Unsupported.icns in Resources */ = {isa = PBXBuildFile; fileRef = 81A6849F151A60BB000B4528 /* Unsupported.icns */; };
 		81A684B1151AA088000B4528 /* GenericQuestionMarkIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 81A684B0151AA088000B4528 /* GenericQuestionMarkIcon.icns */; };
 		81C5C64117F03F1D00CF2B46 /* EmulatorNameValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C5C64017F03F1C00CF2B46 /* EmulatorNameValueTransformer.m */; };
+		81C5C64617F043AB00CF2B46 /* ROMan.icns in Resources */ = {isa = PBXBuildFile; fileRef = 81C5C64517F043AB00CF2B46 /* ROMan.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8131F938150E46B40030DC42 /* FileObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileObject.h; sourceTree = "<group>"; };
 		8131F939150E46B40030DC42 /* FileObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileObject.m; sourceTree = "<group>"; };
-		81451AAA14FB973000644AF4 /* ROMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ROMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		81451AAA14FB973000644AF4 /* Mac ROMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mac ROMan.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81451AAE14FB973000644AF4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		81451AB114FB973000644AF4 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		81451AB214FB973000644AF4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -39,13 +39,12 @@
 		81451AB614FB973000644AF4 /* ROMan-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ROMan-Info.plist"; sourceTree = "<group>"; };
 		81451AB814FB973000644AF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		81451ABA14FB973000644AF4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		81451ABC14FB973000644AF4 /* ROMan-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ROMan-Prefix.pch"; sourceTree = "<group>"; };
+		81451ABC14FB973000644AF4 /* Mac ROMan-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mac ROMan-Prefix.pch"; sourceTree = "<group>"; };
 		81451ABE14FB973000644AF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		81451AC014FB973000644AF4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		81451AC414FB973000644AF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		81451ACB14FB977600644AF4 /* FileHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHandler.h; sourceTree = "<group>"; };
 		81451ACC14FB977600644AF4 /* FileHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHandler.m; sourceTree = "<group>"; };
-		8160F98317E9A45300DED4C9 /* ROMan.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ROMan.icns; sourceTree = "<group>"; };
 		8160F98517E9A4A400DED4C9 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		8189729A17EB39C400BDE239 /* vMac.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vMac.png; sourceTree = "<group>"; };
 		818972A117EB39FC00BDE239 /* EmulatorIconValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmulatorIconValueTransformer.h; sourceTree = "<group>"; };
@@ -60,6 +59,7 @@
 		81A684B0151AA088000B4528 /* GenericQuestionMarkIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = GenericQuestionMarkIcon.icns; sourceTree = "<group>"; };
 		81C5C63F17F03F1C00CF2B46 /* EmulatorNameValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmulatorNameValueTransformer.h; sourceTree = "<group>"; };
 		81C5C64017F03F1C00CF2B46 /* EmulatorNameValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmulatorNameValueTransformer.m; sourceTree = "<group>"; };
+		81C5C64517F043AB00CF2B46 /* ROMan.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ROMan.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +86,7 @@
 		81451AAB14FB973000644AF4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				81451AAA14FB973000644AF4 /* ROMan.app */,
+				81451AAA14FB973000644AF4 /* Mac ROMan.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,7 +128,7 @@
 				81451AB614FB973000644AF4 /* ROMan-Info.plist */,
 				81451AB714FB973000644AF4 /* InfoPlist.strings */,
 				81451ABA14FB973000644AF4 /* main.m */,
-				81451ABC14FB973000644AF4 /* ROMan-Prefix.pch */,
+				81451ABC14FB973000644AF4 /* Mac ROMan-Prefix.pch */,
 				81451ABD14FB973000644AF4 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
@@ -137,10 +137,14 @@
 		81A684A3151A60CA000B4528 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				81C5C64517F043AB00CF2B46 /* ROMan.icns */,
 				81A6849F151A60BB000B4528 /* Unsupported.icns */,
-				8160F98317E9A45300DED4C9 /* ROMan.icns */,
 				81A6849E151A60BB000B4528 /* RomImageDocument.icns */,
 				81A684B0151AA088000B4528 /* GenericQuestionMarkIcon.icns */,
+				8189729A17EB39C400BDE239 /* vMac.png */,
+				818972A417EB3D6200BDE239 /* BasiliskII.png */,
+				818972A517EB3D6200BDE239 /* None.png */,
+				818972A617EB3D6200BDE239 /* Sheepshaver.png */,
 			);
 			name = Icons;
 			sourceTree = "<group>";
@@ -174,10 +178,6 @@
 		81E15C3A151BDDE800565D43 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8189729A17EB39C400BDE239 /* vMac.png */,
-				818972A417EB3D6200BDE239 /* BasiliskII.png */,
-				818972A517EB3D6200BDE239 /* None.png */,
-				818972A617EB3D6200BDE239 /* Sheepshaver.png */,
 				81451AC314FB973000644AF4 /* MainMenu.xib */,
 			);
 			name = Views;
@@ -186,9 +186,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		81451AA914FB973000644AF4 /* ROMan */ = {
+		81451AA914FB973000644AF4 /* Mac ROMan */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 81451AC814FB973000644AF4 /* Build configuration list for PBXNativeTarget "ROMan" */;
+			buildConfigurationList = 81451AC814FB973000644AF4 /* Build configuration list for PBXNativeTarget "Mac ROMan" */;
 			buildPhases = (
 				81451AA614FB973000644AF4 /* Sources */,
 				81451AA714FB973000644AF4 /* Frameworks */,
@@ -198,9 +198,9 @@
 			);
 			dependencies = (
 			);
-			name = ROMan;
+			name = "Mac ROMan";
 			productName = ROMan;
-			productReference = 81451AAA14FB973000644AF4 /* ROMan.app */;
+			productReference = 81451AAA14FB973000644AF4 /* Mac ROMan.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -212,7 +212,7 @@
 				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "Giancarlo Mariot";
 			};
-			buildConfigurationList = 81451AA414FB972F00644AF4 /* Build configuration list for PBXProject "ROMan" */;
+			buildConfigurationList = 81451AA414FB972F00644AF4 /* Build configuration list for PBXProject "Mac ROMan" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -224,7 +224,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				81451AA914FB973000644AF4 /* ROMan */,
+				81451AA914FB973000644AF4 /* Mac ROMan */,
 			);
 		};
 /* End PBXProject section */
@@ -240,11 +240,11 @@
 				81A684A0151A60BB000B4528 /* RomImageDocument.icns in Resources */,
 				81A684A1151A60BB000B4528 /* Unsupported.icns in Resources */,
 				81A684B1151AA088000B4528 /* GenericQuestionMarkIcon.icns in Resources */,
-				8160F98417E9A45300DED4C9 /* ROMan.icns in Resources */,
 				8189729B17EB39C400BDE239 /* vMac.png in Resources */,
 				818972A717EB3D6200BDE239 /* BasiliskII.png in Resources */,
 				818972A817EB3D6200BDE239 /* None.png in Resources */,
 				818972A917EB3D6200BDE239 /* Sheepshaver.png in Resources */,
+				81C5C64617F043AB00CF2B46 /* ROMan.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,10 +345,10 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ROMan/ROMan-Prefix.pch";
+				GCC_PREFIX_HEADER = "ROMan/Mac ROMan-Prefix.pch";
 				INFOPLIST_FILE = "ROMan/ROMan-Info.plist";
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Mac ROMan";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -358,10 +358,10 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ROMan/ROMan-Prefix.pch";
+				GCC_PREFIX_HEADER = "ROMan/Mac ROMan-Prefix.pch";
 				INFOPLIST_FILE = "ROMan/ROMan-Info.plist";
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Mac ROMan";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -369,7 +369,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		81451AA414FB972F00644AF4 /* Build configuration list for PBXProject "ROMan" */ = {
+		81451AA414FB972F00644AF4 /* Build configuration list for PBXProject "Mac ROMan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				81451AC614FB973000644AF4 /* Debug */,
@@ -378,7 +378,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		81451AC814FB973000644AF4 /* Build configuration list for PBXNativeTarget "ROMan" */ = {
+		81451AC814FB973000644AF4 /* Build configuration list for PBXNativeTarget "Mac ROMan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				81451AC914FB973000644AF4 /* Debug */,

@@ -52,8 +52,6 @@
     // 4 = Sheepshaver
     // 5 = Unsupported
     
-    NSLog(@"Icon Value Transformer - value: %@ -- %ld", value, iconValue);
-    
     switch (iconValue) {
         case 1:
             return @"vMac";
@@ -68,7 +66,7 @@
             
     }
     
-    return nil;//[NSImage imageNamed:@"None.png"];
+    return nil;
 }
 
 @end

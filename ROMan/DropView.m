@@ -40,21 +40,11 @@
 - (NSDragOperation)draggingEntered:(id<NSDraggingInfo>)sender {
     if ((NSDragOperationGeneric & [sender draggingSourceOperationMask])
         == NSDragOperationGeneric) {
-//        return NSDragOperationGeneric;
         return NSDragOperationCopy;
     }else{
         return NSDragOperationNone;
     }
 }
-
-//- (void)draggingExited:(id<NSDraggingInfo>)sender {
-//    
-//}
-
-//- (void)draggingEnded:(id < NSDraggingInfo >)sender {
-//    [self setImage:[NSImage imageNamed:@"RomImageDocument.icns"]];
-//    //return [super draggingEnded:sender];
-//}
 
 - (BOOL)prepareForDragOperation:(id<NSDraggingInfo>)sender {
     
@@ -76,17 +66,6 @@
     NSString *kind = nil;
     NSURL *url = [NSURL fileURLWithPath:[firstElement stringByExpandingTildeInPath]];
     LSCopyKindStringForURL((CFURLRef)url, (CFStringRef *)&kind);
-    
-    NSLog(@"%@", kind);
-    
-    //Define what to do:
-//    if ([[pathExtension lowercaseString]    isEqualTo:@"png"]
-//        || isDir
-//        ) {
-//        returnValue = NO;
-//    }else{
-//        returnValue = YES;
-//    }
 
     if (
         [kind isEqualToString:@"Unix Executable File"] ||
@@ -107,13 +86,8 @@
 
 - (BOOL)performDragOperation:(id<NSDraggingInfo>)sender {
     
-    NSPasteboard* pboard = [sender draggingPasteboard];
-    NSArray* urls = [pboard propertyListForType:NSFilenamesPboardType]; 
-    
-//    Singleton *aSingleton = [Singleton sharedSingleton];
-//    [aSingleton setPathList:urls];
-    
-
+    NSPasteboard * pboard = [sender draggingPasteboard];
+    NSArray  * urls = [pboard propertyListForType:NSFilenamesPboardType];
     NSString * pathExtension = [[urls objectAtIndex:0] pathExtension];
     
     if ([[pathExtension lowercaseString] isEqualTo:@"rom"] ) {
@@ -161,49 +135,7 @@
         
     }
 
-    
-    
-    //-----
-    /*
-    NSTask *task = [[NSTask alloc] init];
-    [task setLaunchPath:@"/bin/file"];
-    [task setArguments:[NSArray arrayWithObjects: [[allPaths pathList] objectAtIndex:0], nil]];
-    [task launch];
-    if ([task terminationStatus] != 0) {
-        NSLog(@"an error occurred...");
-    }
-    [task release];  
-    */
-    
-    //-----
-    
-    
-    
-//    NSLog(@"%@", [aSingleton pathList]);
-//    NSLog(@"%@", [aSingleton romMessage]);
-
     return YES;
 }
-
-//- (void)setImage:(NSImage *)newImage {
-//    //Overrides the image being defined.
-//    
-//    NSLog(@"%@",[newImage name]);
-//    [super setImage:newImage];
-//}
-
-//- (id)initWithFrame:(NSRect)frame
-//{
-//    self = [super initWithFrame:frame];
-//    if (self) {
-////        [self registerForDraggedTypes:[NSImage imagePasteboardTypes]];
-////        [self registerForDraggedTypes:[NSArray arrayWithObjects:NSFilenamesPboardType, nil]];
-////        [self registerForDraggedTypes:[NSArray arrayWithObjects:NSURLPboardType, nil]];
-////        [self registerForDraggedTypes:[NSArray arrayWithObjects:NSTIFFPboardType, 
-////                                       NSFilenamesPboardType, nil]];
-//    }
-//    
-//    return self;
-//}
 
 @end
