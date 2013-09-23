@@ -114,7 +114,7 @@
 //    [aSingleton setPathList:urls];
     
 
-    NSString *pathExtension = [[urls objectAtIndex:0] pathExtension];
+    NSString * pathExtension = [[urls objectAtIndex:0] pathExtension];
     
     if ([[pathExtension lowercaseString] isEqualTo:@"rom"] ) {
         [self setImage:[NSImage imageNamed:@"RomImageDocument.icns"]];
@@ -125,6 +125,7 @@
         [[NSApp delegate] setDetails:[aFileHandler fileDetails]];
         [[NSApp delegate] setComments:[aFileHandler comments]];
         [[NSApp delegate] setChecksum:[aFileHandler checksum]];
+        [[NSApp delegate] setRomSize:[aFileHandler romSize]];
         
         int emulatorValue = 0;
         
@@ -132,6 +133,7 @@
         else if ([aFileHandler vMac]       ) emulatorValue = 1;
         else if ([aFileHandler BasiliskII] ) emulatorValue = 2;
         else if ([aFileHandler Sheepshaver]) emulatorValue = 4;
+        else if ([aFileHandler unsupported]) emulatorValue = 5;
 
         [[NSApp delegate] setSupportedEmulators:[NSNumber numberWithInt:emulatorValue]];
         [[NSApp delegate] setMoreInfo:[aFileHandler moreInfo]];
@@ -147,11 +149,12 @@
         [[NSApp delegate] setDetails:[aFileHandler fileDetails]];
         [[NSApp delegate] setComments:[aFileHandler comments]];
         [[NSApp delegate] setChecksum:[aFileHandler checksum]];
+        [[NSApp delegate] setRomSize:[aFileHandler romSize]];
         [self setImage:[NSImage imageNamed:@"GenericQuestionMarkIcon.icns"]];
         
         [aFileHandler release];
         
-    }else{
+    } else {
         
         [self setImage:[NSImage imageNamed:@"Unsupported.icns"]];        
         [[NSApp delegate] setDetails:@"Invalid format" AndComments:@""];

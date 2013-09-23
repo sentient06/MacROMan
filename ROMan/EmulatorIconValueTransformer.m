@@ -26,6 +26,7 @@
     // 2 = BasiliskII
     // 3 = vMacBasilisk
     // 4 = Sheepshaver
+    // 5 = Unsupported
     
     NSLog(@"Icon Value Transformer - value: %@ -- %ld", value, iconValue);
     
@@ -38,6 +39,8 @@
             return [NSImage imageNamed:@"Basilisk.png"];
         case 4:
             return [NSImage imageNamed:@"Sheepshaver.png"];
+        case 5:
+            return [NSImage imageNamed:@"None.png"];
             
     }
     

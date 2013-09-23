@@ -34,8 +34,8 @@
 
 @implementation FileHandler
 
-@synthesize fileDetails, comments, checksum, moreInfo;
-@synthesize vMac, BasiliskII, Sheepshaver, processor68000, processor68020, processor68030, processor68040, processorPPC;
+@synthesize fileDetails, comments, checksum, moreInfo, romSize;
+@synthesize vMac, BasiliskII, Sheepshaver, processor68000, processor68020, processor68030, processor68040, processorPPC, unsupported;
 
 - (void) readRomFileFrom:(NSString*)filePath {
     
@@ -52,12 +52,27 @@
     vMac           = NO;
     BasiliskII     = NO;
     Sheepshaver    = NO;
+    unsupported    = NO;
     processor68000 = NO;
     processor68020 = NO;
     processor68030 = NO;
     processor68040 = NO;
     processorPPC   = NO;
     moreInfo       = @"";
+    
+    switch (len / 1024) {
+        case 64  : romSize = @"64KB";  break;
+        case 128 : romSize = @"128KB"; break;
+        case 256 : romSize = @"256KB"; break;
+        case 512 : romSize = @"512KB"; break;
+        case 1024: romSize = @"1MB";   break;
+        case 2048: romSize = @"2MB";   break;
+        case 3072: romSize = @"3MB";   break;
+        case 4096: romSize = @"4MB";   break;
+        default:
+            romSize = [NSString stringWithFormat:@"%uKB?", (len/1024)];
+            break;
+    }
     
     switch( ntohl(*(uint32 *)byteData) ) {
             
@@ -66,11 +81,13 @@
             fileDetails = @"Macintosh 128";
             comments = @"First Macintosh ever made.\nThis ROM can't be used on emulation.";
             processor68000 = YES;
+            unsupported = YES;
             break;
         case 0x28BA4E50:
             fileDetails = @"Macintosh 512K";
             comments = @"Second Macintosh ever made.\nThis ROM can't be used on emulation.";
             processor68000 = YES;
+            unsupported = YES;
             break;
             // no basilisk
             
@@ -79,6 +96,7 @@
             fileDetails = @"Macintosh Plus v1 Lonely Hearts";
             comments = @"This ROM was buggy and had 2 revisions!\nvMac can't boot from it.\nThe second revision (v3) is more recommended.";
             processor68000 = YES;
+            unsupported = YES;
             break;
         case 0x4D1EEAE1:
             fileDetails = @"Macintosh Plus v2 Lonely Heifers";
@@ -163,7 +181,8 @@
             
             fileDetails = @"Macintosh Classic II";
             comments = @"Emulation may require the FPU and AppleTalk may not be supported.";
-            comments = [NSString stringWithFormat: @"Size is %ul", [size intValue]]; //3193670E
+            //3193670E
+            //262164 = 256K
             
             BasiliskII = YES;
             processor68020 = YES;

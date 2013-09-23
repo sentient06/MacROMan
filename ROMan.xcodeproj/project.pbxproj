@@ -25,6 +25,7 @@
 		81A684A0151A60BB000B4528 /* RomImageDocument.icns in Resources */ = {isa = PBXBuildFile; fileRef = 81A6849E151A60BB000B4528 /* RomImageDocument.icns */; };
 		81A684A1151A60BB000B4528 /* Unsupported.icns in Resources */ = {isa = PBXBuildFile; fileRef = 81A6849F151A60BB000B4528 /* Unsupported.icns */; };
 		81A684B1151AA088000B4528 /* GenericQuestionMarkIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 81A684B0151AA088000B4528 /* GenericQuestionMarkIcon.icns */; };
+		81C5C64117F03F1D00CF2B46 /* EmulatorNameValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C5C64017F03F1C00CF2B46 /* EmulatorNameValueTransformer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,8 @@
 		81A6849E151A60BB000B4528 /* RomImageDocument.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = RomImageDocument.icns; sourceTree = "<group>"; };
 		81A6849F151A60BB000B4528 /* Unsupported.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Unsupported.icns; sourceTree = "<group>"; };
 		81A684B0151AA088000B4528 /* GenericQuestionMarkIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = GenericQuestionMarkIcon.icns; sourceTree = "<group>"; };
+		81C5C63F17F03F1C00CF2B46 /* EmulatorNameValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmulatorNameValueTransformer.h; sourceTree = "<group>"; };
+		81C5C64017F03F1C00CF2B46 /* EmulatorNameValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmulatorNameValueTransformer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +154,8 @@
 				819523C0150A042200114146 /* DropView.m */,
 				818972A117EB39FC00BDE239 /* EmulatorIconValueTransformer.h */,
 				818972A217EB39FC00BDE239 /* EmulatorIconValueTransformer.m */,
+				81C5C63F17F03F1C00CF2B46 /* EmulatorNameValueTransformer.h */,
+				81C5C64017F03F1C00CF2B46 /* EmulatorNameValueTransformer.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -256,6 +261,7 @@
 				8131F93A150E46B40030DC42 /* FileObject.m in Sources */,
 				8160F98617E9A4A400DED4C9 /* AppDelegate.m in Sources */,
 				818972A317EB39FC00BDE239 /* EmulatorIconValueTransformer.m in Sources */,
+				81C5C64117F03F1D00CF2B46 /* EmulatorNameValueTransformer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

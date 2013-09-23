@@ -1,9 +1,9 @@
 //
-//  AppDelegate.h
+//  EmulatorNameValueTransformer.m
 //  ROMan
 //
-//  Created by Giancarlo Mariot on 27/02/2012.
-//  Copyright (c) 2012 Giancarlo Mariot. All rights reserved.
+//  Created by Giancarlo Mariot on 23/09/2013.
+//  Copyright (c) 2013 Giancarlo Mariot. All rights reserved.
 //
 //------------------------------------------------------------------------------
 //
@@ -30,21 +30,45 @@
 //
 //------------------------------------------------------------------------------
 
-#import <Cocoa/Cocoa.h>
-#import "DropView.h"
+#import "EmulatorNameValueTransformer.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate> {
-    NSMutableArray * listOfFiles;
+@implementation EmulatorNameValueTransformer
+
++ (Class)transformedValueClass {
+    return [NSString class]; 
+}
++ (BOOL)allowsReverseTransformation { 
+    return NO; 
 }
 
-@property (assign) IBOutlet NSWindow * window;
-
-@property (copy) NSMutableArray * listOfFiles;
-@property (copy) NSString * details, * comments, * checksum, * moreInfo, * romSize;
-@property (assign) NSNumber * supportedEmulators;
-@property BOOL vMac, BasiliskII, Sheepshaver;
-
-- (void)setDetails:(NSString*)newDetails AndComments:(NSString *)newComments;
-- (void)setDetails:(NSString*)newDetails AndComments:(NSString *)newComments AndChecksum:(NSString *)newChecksum;
+- (id)transformedValue:(id)value {
+    
+    long iconValue = [value integerValue];
+    
+    // 0 = None
+    // 1 = vMac
+    // 2 = BasiliskII
+    // 3 = vMacBasilisk
+    // 4 = Sheepshaver
+    // 5 = Unsupported
+    
+    NSLog(@"Icon Value Transformer - value: %@ -- %ld", value, iconValue);
+    
+    switch (iconValue) {
+        case 1:
+            return @"vMac";
+        case 2:
+            return @"Basilisk II";
+        case 3:
+            return @"vMac & Basilisk II";
+        case 4:
+            return @"Sheepshaver";
+        case 5:
+            return @"Unsupported";
+            
+    }
+    
+    return nil;//[NSImage imageNamed:@"None.png"];
+}
 
 @end

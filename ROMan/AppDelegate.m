@@ -45,7 +45,7 @@
 // Standard variables synthesisers.
 
 @synthesize listOfFiles;
-@synthesize details, comments, checksum, moreInfo;
+@synthesize details, comments, checksum, moreInfo, romSize;
 @synthesize supportedEmulators;
 @synthesize vMac, BasiliskII, Sheepshaver;
 

@@ -1,9 +1,9 @@
 //
-//  AppDelegate.h
+//  EmulatorNameValueTransformer.h
 //  ROMan
 //
-//  Created by Giancarlo Mariot on 27/02/2012.
-//  Copyright (c) 2012 Giancarlo Mariot. All rights reserved.
+//  Created by Giancarlo Mariot on 23/09/2013.
+//  Copyright (c) 2013 Giancarlo Mariot. All rights reserved.
 //
 //------------------------------------------------------------------------------
 //
@@ -30,21 +30,8 @@
 //
 //------------------------------------------------------------------------------
 
-#import <Cocoa/Cocoa.h>
-#import "DropView.h"
+#import <Foundation/Foundation.h>
 
-@interface AppDelegate : NSObject <NSApplicationDelegate> {
-    NSMutableArray * listOfFiles;
-}
-
-@property (assign) IBOutlet NSWindow * window;
-
-@property (copy) NSMutableArray * listOfFiles;
-@property (copy) NSString * details, * comments, * checksum, * moreInfo, * romSize;
-@property (assign) NSNumber * supportedEmulators;
-@property BOOL vMac, BasiliskII, Sheepshaver;
-
-- (void)setDetails:(NSString*)newDetails AndComments:(NSString *)newComments;
-- (void)setDetails:(NSString*)newDetails AndComments:(NSString *)newComments AndChecksum:(NSString *)newChecksum;
+@interface EmulatorNameValueTransformer : NSValueTransformer
 
 @end
