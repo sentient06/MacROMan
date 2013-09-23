@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		8131F93A150E46B40030DC42 /* FileObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8131F939150E46B40030DC42 /* FileObject.m */; };
+		813231C017F0580C00C4C7E4 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 813231BD17F0580C00C4C7E4 /* index.html */; };
+		813231C217F0580C00C4C7E4 /* MacRomanHelp.png in Resources */ = {isa = PBXBuildFile; fileRef = 813231BF17F0580C00C4C7E4 /* MacRomanHelp.png */; };
+		813231C517F05A5400C4C7E4 /* index.html in CopyFiles */ = {isa = PBXBuildFile; fileRef = 813231BD17F0580C00C4C7E4 /* index.html */; };
+		813231C617F05A5600C4C7E4 /* MacRomanHelp.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 813231BF17F0580C00C4C7E4 /* MacRomanHelp.png */; };
 		81451AAF14FB973000644AF4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81451AAE14FB973000644AF4 /* Cocoa.framework */; };
 		81451AB914FB973000644AF4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 81451AB714FB973000644AF4 /* InfoPlist.strings */; };
 		81451ABB14FB973000644AF4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 81451ABA14FB973000644AF4 /* main.m */; };
@@ -28,9 +32,25 @@
 		81C5C64617F043AB00CF2B46 /* ROMan.icns in Resources */ = {isa = PBXBuildFile; fileRef = 81C5C64517F043AB00CF2B46 /* ROMan.icns */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		813231C417F05A3700C4C7E4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = MacROManHelp;
+			dstSubfolderSpec = 7;
+			files = (
+				813231C517F05A5400C4C7E4 /* index.html in CopyFiles */,
+				813231C617F05A5600C4C7E4 /* MacRomanHelp.png in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		8131F938150E46B40030DC42 /* FileObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileObject.h; sourceTree = "<group>"; };
 		8131F939150E46B40030DC42 /* FileObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileObject.m; sourceTree = "<group>"; };
+		813231BD17F0580C00C4C7E4 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		813231BF17F0580C00C4C7E4 /* MacRomanHelp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MacRomanHelp.png; sourceTree = "<group>"; };
 		81451AAA14FB973000644AF4 /* Mac ROMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mac ROMan.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81451AAE14FB973000644AF4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		81451AB114FB973000644AF4 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -74,6 +94,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		813231BC17F0580C00C4C7E4 /* MacROManHelp */ = {
+			isa = PBXGroup;
+			children = (
+				813231BD17F0580C00C4C7E4 /* index.html */,
+				813231BF17F0580C00C4C7E4 /* MacRomanHelp.png */,
+			);
+			path = MacROManHelp;
+			sourceTree = "<group>";
+		};
 		81451A9F14FB972F00644AF4 = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +154,7 @@
 		81451AB514FB973000644AF4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				813231BC17F0580C00C4C7E4 /* MacROManHelp */,
 				81451AB614FB973000644AF4 /* ROMan-Info.plist */,
 				81451AB714FB973000644AF4 /* InfoPlist.strings */,
 				81451ABA14FB973000644AF4 /* main.m */,
@@ -193,6 +223,7 @@
 				81451AA614FB973000644AF4 /* Sources */,
 				81451AA714FB973000644AF4 /* Frameworks */,
 				81451AA814FB973000644AF4 /* Resources */,
+				813231C417F05A3700C4C7E4 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -245,6 +276,8 @@
 				818972A817EB3D6200BDE239 /* None.png in Resources */,
 				818972A917EB3D6200BDE239 /* Sheepshaver.png in Resources */,
 				81C5C64617F043AB00CF2B46 /* ROMan.icns in Resources */,
+				813231C017F0580C00C4C7E4 /* index.html in Resources */,
+				813231C217F0580C00C4C7E4 /* MacRomanHelp.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

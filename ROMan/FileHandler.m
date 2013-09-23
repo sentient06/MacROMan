@@ -46,7 +46,7 @@
     Byte * byteData = (Byte*)malloc(len);
     memcpy(byteData, [data bytes], len);
     
-    NSNumber * size = [[NSNumber alloc] initWithUnsignedLong:len/2^20];
+//    NSNumber * size = [[NSNumber alloc] initWithUnsignedLong:len/2^20];
     
     checksum       = [NSString stringWithFormat: @"Checksum: %X", ntohl(*(uint32 *)byteData)];
     vMac           = NO;
@@ -169,30 +169,20 @@
             processor68030 = YES;
             break;
         case 0x350EACF0:
-            fileDetails = @"Macintosh LC (Pizza box)";
+            fileDetails = @"Macintosh LC";
             comments = @"AppleTalk is not supported in Basilisk.";
             BasiliskII = YES;
             processor68020 = YES;
             processor68030 = YES;
             processor68040 = YES;
             break;
-        case 0x3193670E:
-            //            if (512k) {
-            
+        case 0x3193670E: //Mysterious 1024KB version?
             fileDetails = @"Macintosh Classic II";
-            comments = @"Emulation may require the FPU and AppleTalk may not be supported.";
-            //3193670E
-            //262164 = 256K
-            
+            comments = @"Emulation may require the FPU and AppleTalk may not be supported.";         
             BasiliskII = YES;
             processor68020 = YES;
             processor68030 = YES;
-            processor68040 = YES;
-            
-            //            } else if(1024k) {
-            
-            //            }
-            
+            processor68040 = YES;            
             break;            
         case 0x368CADFE:
             fileDetails = @"Macintosh IIci";
@@ -211,7 +201,7 @@
             processor68040 = YES;
             break;
         case 0x35C28F5F:
-            fileDetails = @"Mac LC II (Pizza box) or Performa 400/405/410/430"; //IIci?
+            fileDetails = @"Mac LC II or Performa 400/405/410/430"; //IIci?
             comments = @"In Basilisk, AppleTalk is not supported.";
             BasiliskII = YES;
             processor68020 = YES;
@@ -424,38 +414,33 @@
             
         case 0x3C434852:
             fileDetails = @"The famous New World ROM from Apple's update";
-            comments = @"Runs on Sheepshaver";
+            comments = @"Mac OS 9.0.4! Yeah!";
             Sheepshaver = YES;
             break;
             
         default:            
-            
+            // Unknown
             fileDetails = @"Unknown ROM";
-            switch([size intValue]) {
-                case 1048576:
+            switch(len) {
+                case 65536: //64KB
+                case 131072: //128KB
+                case 262144: //256KB
                     break;
-                case 524288:
-                    fileDetails = @"AppleTalk is not supported.";
+                case 524288: //512KB
+                    comments = @"Try running on Basilisk II, without AppleTalk";
                     break;
-                case 262144:
+                case 1048576: //1MB
+                    break;
+                case 2097152: //2MB
+                case 3145728: //3MB
+                case 4194304: //4MB
+                    comments = @"Maybe it runs on Sheepshaver";
+                    break;
+                default:
+                    fileDetails  = @"Unsupported ROM size.";
+                    comments     = @"Size should be 64KB, 128KB, 256KB, 512KB, 1MB, 2MB, 3MB or 4MB.";
                     break;
 
-//                case 2097172:
-//                    
-//                    if (sheepshaverEnabled) {
-//                        fileDetails  = @"Power Mac (Old World ROM)";
-//                        romCondition = PerfectSheepOld;
-//                    }else{
-//                        fileDetails = @"Unsupported ROM size";
-//                        comments = [NSString stringWithFormat: @"%d", [size intValue]];
-//                    }
-//                    
-//                    break;                   
-                    
-                default:
-                    fileDetails = @"Unsupported ROM size.";
-                    comments = [NSString stringWithFormat: @"%d", [size intValue]];
-                break;
             }
             break;
     }
@@ -472,7 +457,7 @@
     //https://en.wikipedia.org/wiki/Timeline_of_Apple_Macintosh_models
     
     
-    [size release];
+//    [size release];
     
     [romPath release];
 }
