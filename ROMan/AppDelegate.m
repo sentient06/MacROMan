@@ -1,6 +1,6 @@
 //
 //  AppDelegate.m
-//  ROMan
+//  Mac ROMan
 //
 //  Created by Giancarlo Mariot on 27/02/2012.
 //  Copyright (c) 2012 Giancarlo Mariot. All rights reserved.
@@ -46,7 +46,6 @@
 // Standard variables synthesisers.
 
 @synthesize fileIcon = _fileIcon;
-
 @synthesize emulator;
 @synthesize fileSize;
 @synthesize macModel;
@@ -58,10 +57,16 @@
 
 #pragma mark – Dealloc
 
+/*!
+ * @abstract Sets an icon image.
+ */
 - (void)setFileIconPlaceholder:(NSImage *)newIcon {
     [_fileIcon setImage:newIcon];
 }
 
+/*!
+ * @abstract Sets all window informtion.
+ */
 - (void)setVariablesFromRomController:(RomFileController *)romFileController {
     [self setMacModel:[romFileController macModel]];
     [self setComments:[romFileController comments]];
@@ -76,18 +81,19 @@
 
 #pragma mark – Rewritten methods
 
-///*!
-// * @abstract Reopens closed window from Dock icon.
-// * @link     Check XCode quick help.
-// */
-//- (BOOL)applicationShouldHandleReopen:(NSApplication *)app hasVisibleWindows:(BOOL)flag {
+/*!
+ * @abstract Doesn't reopen closed window from Dock icon.
+ * @link     Check XCode quick help.
+ */
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)app hasVisibleWindows:(BOOL)flag {
 //    if (!flag) {
 //        [_window makeKeyAndOrderFront:self];
 //        return NO;
 //    } else {
 //        return YES;
 //    }
-//}
+    return NO;
+}
 
 /*!
  * @abstract Quits application when window is closed.
@@ -104,6 +110,7 @@
     [self setVariablesFromRomController:romFileController];
     [romFileController release];
     
+    loadedFile = YES;
     [_window makeKeyAndOrderFront:self];
     
     return YES;
@@ -114,10 +121,14 @@
 
 #pragma mark – Standard methods
 
+/*!
+ * @abstract Init.
+ */
 - (id)init {
     self = [super init];
     if (self) {
         fileSize = -1;
+        loadedFile = NO;
     }
     return self;
 }
@@ -126,8 +137,10 @@
  * @link Check XCode quick help.
  */
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    [self setMacModel:@"No ROM file detected"];
-    [self setComments:@""];
+    if (!loadedFile) {
+        [self setMacModel:@"No ROM file detected"];
+        [self setComments:@""];
+    }
 }
 
 @end

@@ -1,6 +1,6 @@
 //
 //  EmulatorNameValueTransformer.h
-//  ROMan
+//  Mac ROMan
 //
 //  Created by Giancarlo Mariot on 23/09/2013.
 //  Copyright (c) 2013 Giancarlo Mariot. All rights reserved.

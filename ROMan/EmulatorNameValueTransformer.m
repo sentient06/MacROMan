@@ -1,6 +1,6 @@
 //
 //  EmulatorNameValueTransformer.m
-//  ROMan
+//  Mac ROMan
 //
 //  Created by Giancarlo Mariot on 23/09/2013.
 //  Copyright (c) 2013 Giancarlo Mariot. All rights reserved.
@@ -44,16 +44,9 @@
 }
 
 - (id)transformedValue:(id)value {
-    
-    long iconValue = [value integerValue];
-    
-    // 0 = None
-    // 1 = vMac
-    // 2 = BasiliskII
-    // 3 = vMacBasilisk
-    // 4 = Sheepshaver
-    // 5 = Unsupported
-    
+
+    int iconValue = [value intValue];
+
     switch (iconValue) {
         case vMacNormal:
             return @"Mini vMac";
@@ -71,6 +64,7 @@
     }
     
     return nil;
+
 }
 
 @end

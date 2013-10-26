@@ -61,6 +61,4 @@ enum EmulatorTypes {
 
 - (void)parseFile:(NSString *)filePath;
 
-//- (void)readRomFileFrom:(NSString *)filePath;
-
 @end

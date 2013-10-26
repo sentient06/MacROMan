@@ -1,6 +1,6 @@
 //
 //  EmulatorIconValueTransformer.m
-//  ROMan
+//  Mac ROMan
 //
 //  Created by Giancarlo Mariot on 19/09/2013.
 //  Copyright (c) 2013 Giancarlo Mariot. All rights reserved.

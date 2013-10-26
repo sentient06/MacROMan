@@ -1,6 +1,6 @@
 //
 //  DropView.m
-//  DragDropApp
+//  Mac ROMan
 //
 //  Created by Giancarlo Mariot on 28/02/2012.
 //  Copyright (c) 2012 Giancarlo Mariot. All rights reserved.

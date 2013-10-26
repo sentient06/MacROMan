@@ -41,6 +41,9 @@
 @synthesize comments;
 @synthesize checksum;
 
+/*!
+ * @abstract Checks if file is of a valid format.
+ */
 + (BOOL)validateFile:(NSString *)filePath {
     
     if (![[[filePath pathExtension] lowercaseString] isEqualTo:@"rom"])
@@ -64,6 +67,19 @@
     else return NO;
 }
 
+/*!
+ * @abstract Parses ROM file.
+ * @link     http://www.jagshouse.com/rom.html
+ * @link     http://mess.redump.net/mess/driver_info/mac_technical_notes
+ * @link     http://minivmac.sourceforge.net/mac68k.html
+ * @link     http://www.emulators.com/softmac.htm
+ * @link     http://www.theoldcomputer.com/roms/index.php?folder=BIOS-System-Boot/Apple
+ * @link     http://support.apple.com/kb/TA29027?viewlocale=en_US&locale=en_US
+ * @link     http://macintoshgarden.org/forum/project-looking-mac-roms
+ * @link     http://minivmac.sourceforge.net/extras/egretrom.html
+ * @link     https://en.wikipedia.org/wiki/Macintosh_Performa
+ * @link     https://en.wikipedia.org/wiki/Timeline_of_Apple_Macintosh_models
+ */
 - (void)parseFile:(NSString *)filePath {
     
     if (![RomFileController validateFile:filePath]) {
@@ -413,9 +429,9 @@
             macModel = @"PowerBook G3 Wallstreet PDQ";
             // processorPPC   = YES;
             break;
-            
-            
-            
+
+            //------------------------------------------------
+            // New world
         case 0x3C434852:
             macModel = @"The famous New World ROM from Apple's update";
             comments = @"Mac OS 9.0.4! Yeah!";
@@ -434,6 +450,7 @@
                     comments = @"Try running on Basilisk II, without AppleTalk";
                     break;
                 case 1048576: //1MB
+                    comments = @"Maybe it runs on Basilisk II";
                     break;
                 case 2097152: //2MB
                 case 3145728: //3MB
@@ -441,83 +458,14 @@
                     comments = @"Maybe it runs on Sheepshaver";
                     break;
                 default:
-                    macModel  = @"Unsupported ROM size.";
-                    comments  = @"Size should be 64KB, 128KB, 256KB, 512KB, 1MB, 2MB, 3MB or 4MB.";
+                    macModel = @"Unsupported ROM size.";
+                    comments = @"Size should be 64KB, 128KB, 256KB, 512KB, 1MB, 2MB, 3MB or 4MB.";
                     break;
                     
             }
             break;
     }
-    //http://www.jagshouse.com/rom.html
-    //http://mess.redump.net/mess/driver_info/mac_technical_notes
-    //http://minivmac.sourceforge.net/mac68k.html
-    //http://www.emulators.com/softmac.htm
-    //http://www.theoldcomputer.com/roms/index.php?folder=BIOS-System-Boot/Apple
-    
-    //http://support.apple.com/kb/TA29027?viewlocale=en_US&locale=en_US
-    //http://macintoshgarden.org/forum/project-looking-mac-roms
-    //http://minivmac.sourceforge.net/extras/egretrom.html
-    //https://en.wikipedia.org/wiki/Macintosh_Performa
-    //https://en.wikipedia.org/wiki/Timeline_of_Apple_Macintosh_models
 
 }
-
-/*
-- (void)readRomFileFrom:(NSString *)filePath {
-
-    FileHandler * fileHandler = [[FileHandler alloc] init];
-    [fileHandler readRomFileFrom:filePath];
-    
-    if ([fileHandler validFile]) {
-        
-        //----
-        
-//        [[NSApp delegate] setFileIconPlaceholder:[NSImage imageNamed:@"RomImageDocument.icns"]];
-//        [[NSApp delegate] setDetails:[fileHandler fileDetails]];
-//        [[NSApp delegate] setComments:[fileHandler comments]];
-//        [[NSApp delegate] setChecksum:[fileHandler checksum]];
-//        [[NSApp delegate] setRomSize:[fileHandler romSize]];
-        
-        int emulatorValue = 0;
-        
-        if ([fileHandler vMacNormal] && [fileHandler BasiliskII] ) emulatorValue = 4;
-        else if ([fileHandler vMacNormal] ) emulatorValue = 1;
-        else if ([fileHandler vMacSpecial]) emulatorValue = 2;
-        else if ([fileHandler BasiliskII] ) emulatorValue = 3;
-        else if ([fileHandler Sheepshaver]) emulatorValue = 5;
-        else if ([fileHandler unsupported]) emulatorValue = 6;
-        
-//        [[NSApp delegate] setSupportedEmulators:[NSNumber numberWithInt:emulatorValue]];
-//        [[NSApp delegate] setMoreInfo:[fileHandler moreInfo]];
-        
-        //----
-
-        
-//    } else if ([[pathExtension lowercaseString] isEqualTo:@""] ) {
-//        
-//        FileHandler * aFileHandler = [[FileHandler alloc] init];
-//        [aFileHandler readRomFileFrom:[urls objectAtIndex:0]];
-//        
-//        [[NSApp delegate] setDetails:[aFileHandler fileDetails]];
-//        [[NSApp delegate] setComments:[aFileHandler comments]];
-//        [[NSApp delegate] setChecksum:[aFileHandler checksum]];
-//        [[NSApp delegate] setRomSize:[aFileHandler romSize]];
-//        [self setImage:[NSImage imageNamed:@"GenericQuestionMarkIcon.icns"]];
-//        
-//        [aFileHandler release];
-//        
-//    } else {
-//        
-//        [self setImage:[NSImage imageNamed:@"Unsupported.icns"]];        
-//        [[NSApp delegate] setDetails:@"Invalid format" AndComments:@""];
-//        
-//    }
-
-    }
-    
-    [fileHandler release];
-    
-}
-*/
 
 @end

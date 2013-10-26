@@ -1,6 +1,6 @@
 //
 //  AppDelegate.h
-//  ROMan
+//  Mac ROMan
 //
 //  Created by Giancarlo Mariot on 27/02/2012.
 //  Copyright (c) 2012 Giancarlo Mariot. All rights reserved.
@@ -36,6 +36,7 @@
 @class RomFileController;
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
+    BOOL loadedFile;
     /// 32-bit compatibility -------    
     id _window;
     id _fileIcon;
