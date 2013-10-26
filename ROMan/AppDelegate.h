@@ -35,13 +35,23 @@
 
 @class RomFileController;
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate> {
+    /// 32-bit compatibility -------    
+    id _window;
+    id _fileIcon;
+    id macModel;
+    id comments;
+    id checksum;
+    int emulator;
+    int fileSize;
+    /// ----------------------------
+}
 
 @property (assign) IBOutlet NSWindow    * window;
 @property (assign) IBOutlet NSImageView * fileIcon;
 
-@property (assign) NSInteger emulator;
-@property (assign) NSInteger fileSize;
+@property (assign) int emulator;
+@property (assign) int fileSize;
 @property (copy) NSString * macModel;
 @property (copy) NSString * comments;
 @property (copy) NSString * checksum;

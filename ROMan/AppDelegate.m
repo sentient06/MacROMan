@@ -76,17 +76,25 @@
 
 #pragma mark – Rewritten methods
 
+///*!
+// * @abstract Reopens closed window from Dock icon.
+// * @link     Check XCode quick help.
+// */
+//- (BOOL)applicationShouldHandleReopen:(NSApplication *)app hasVisibleWindows:(BOOL)flag {
+//    if (!flag) {
+//        [_window makeKeyAndOrderFront:self];
+//        return NO;
+//    } else {
+//        return YES;
+//    }
+//}
+
 /*!
- * @abstract Reopens closed window from Dock icon.
+ * @abstract Quits application when window is closed.
  * @link     Check XCode quick help.
  */
-- (BOOL)applicationShouldHandleReopen:(NSApplication *)app hasVisibleWindows:(BOOL)flag {
-    if (!flag) {
-        [_window makeKeyAndOrderFront:self];
-        return NO;
-    } else {
-        return YES;
-    }
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
+    return YES;
 }
 
 - (BOOL)application:(NSApplication *)theApplication openFile:(NSString *)filename {
@@ -95,6 +103,8 @@
     [romFileController parseFile:filename];
     [self setVariablesFromRomController:romFileController];
     [romFileController release];
+    
+    [_window makeKeyAndOrderFront:self];
     
     return YES;
 }

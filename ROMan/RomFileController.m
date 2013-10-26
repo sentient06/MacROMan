@@ -72,7 +72,7 @@
     }
     
     NSData * data = [NSData dataWithContentsOfFile:filePath];
-    fileSize = [data length];
+    fileSize = (int) [data length];
     Byte * byteData = (Byte *)malloc(fileSize);
     memcpy(byteData, [data bytes], fileSize);
 

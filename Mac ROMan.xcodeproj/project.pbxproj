@@ -48,7 +48,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		81165EAD181C25DA00545D16 /* SizeLabelValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; path = SizeLabelValueTransformer.h; sourceTree = "<group>"; };
+		81165EAD181C25DA00545D16 /* SizeLabelValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SizeLabelValueTransformer.h; sourceTree = "<group>"; };
 		81165EAE181C25DA00545D16 /* SizeLabelValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SizeLabelValueTransformer.m; sourceTree = "<group>"; };
 		812C472F181AE18E007682CB /* RomFileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RomFileController.h; sourceTree = "<group>"; };
 		812C4730181AE18E007682CB /* RomFileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RomFileController.m; sourceTree = "<group>"; };
@@ -374,7 +374,7 @@
 		81451AC914FB973000644AF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ROMan/Mac ROMan-Prefix.pch";
 				INFOPLIST_FILE = "ROMan/ROMan-Info.plist";
@@ -387,7 +387,7 @@
 		81451ACA14FB973000644AF4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ROMan/Mac ROMan-Prefix.pch";
 				INFOPLIST_FILE = "ROMan/ROMan-Info.plist";

@@ -41,10 +41,18 @@ enum EmulatorTypes {
   , Unsupported  = 6
 };
 
-@interface RomFileController : NSObject
+@interface RomFileController : NSObject {
+    /// 32-bit compatibility -------    
+    id macModel;
+    id comments;
+    id checksum;
+    int emulator;
+    int fileSize;
+    /// ----------------------------
+}
 
-@property (assign) NSInteger emulator;
-@property (assign) NSInteger fileSize;
+@property (assign) int emulator;
+@property (assign) int fileSize;
 @property (copy) NSString * macModel;
 @property (copy) NSString * comments;
 @property (copy) NSString * checksum;
