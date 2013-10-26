@@ -1,9 +1,9 @@
 //
-//  DropView.m
-//  DragDropApp
+//  BytesValueTransformer.m
+//  Mac ROMan
 //
-//  Created by Giancarlo Mariot on 28/02/2012.
-//  Copyright (c) 2012 Giancarlo Mariot. All rights reserved.
+//  Created by Giancarlo Mariot on 25/10/2013.
+//  Copyright (c) 2013 Giancarlo Mariot. All rights reserved.
 //
 //------------------------------------------------------------------------------
 //
@@ -30,38 +30,53 @@
 //
 //------------------------------------------------------------------------------
 
-#import "DropView.h"
-#import "RomFileController.h"
-#import "AppDelegate.h"
+#import "BytesValueTransformer.h"
 
-@implementation DropView
+@implementation BytesValueTransformer
 
-- (NSDragOperation)draggingEntered:(id<NSDraggingInfo>)sender {
-    int dragOperationType = NSDragOperationGeneric & [sender draggingSourceOperationMask];
-    if (dragOperationType == NSDragOperationGeneric)
-         return NSDragOperationCopy;
-    else return NSDragOperationNone;
++ (Class)transformedValueClass {
+    return [NSString class];
 }
 
-- (BOOL)prepareForDragOperation:(id<NSDraggingInfo>)sender {
-    // All pasteboard:
-    NSPasteboard * pboard = [sender draggingPasteboard];
-    NSArray      * urls   = [pboard propertyListForType:NSFilenamesPboardType];
-    // First element only:
-    NSString * firstElement  = [[[NSString alloc] initWithFormat:[urls objectAtIndex:0]] autorelease];
-    BOOL validFile = [RomFileController validateFile:[firstElement stringByExpandingTildeInPath]];
-    if (validFile) return YES;
-    return NO;
++ (BOOL)allowsReverseTransformation { 
+    return NO; 
 }
 
-- (BOOL)performDragOperation:(id<NSDraggingInfo>)sender {
-    NSPasteboard      * pboard            = [sender draggingPasteboard];
-    NSArray           * urls              = [pboard propertyListForType:NSFilenamesPboardType];
-    RomFileController * romFileController = [[RomFileController alloc] init];
-    [romFileController parseFile:[urls objectAtIndex:0]];
-    [[NSApp delegate] setVariablesFromRomController:romFileController];
-    [romFileController release];
-    return YES;
+- (id)transformedValue:(id)value {    
+    
+    float floatSize = [value floatValue];
+    int intSize = [value intValue];
+    BOOL simple = NO;
+    
+    if (floatSize == intSize)
+        simple = YES;
+    
+    if (intSize == 0)
+        return @"";
+
+	if (floatSize<1023)
+		return [NSString stringWithFormat:@"%d bytes", intSize];
+    
+	floatSize = floatSize / 1024;
+    intSize = intSize / 1024;
+	if (floatSize<1023)
+        if (simple)
+            return      [NSString stringWithFormat:@"%d KB", intSize];
+        else return [NSString stringWithFormat:@"%1.1f KB", floatSize];
+    
+	floatSize = floatSize / 1024;
+    intSize = intSize / 1024;
+	if (floatSize<1023)
+        if (simple)
+            return      [NSString stringWithFormat:@"%d MB", intSize];
+        else return [NSString stringWithFormat:@"%1.1f MB", floatSize];
+    
+	floatSize = floatSize / 1024;
+    intSize = intSize / 1024;
+    if (simple)
+		return      [NSString stringWithFormat:@"%d GB", intSize];
+    else return [NSString stringWithFormat:@"%1.1f GB", floatSize];
+    
 }
 
 @end

@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8131F93A150E46B40030DC42 /* FileObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8131F939150E46B40030DC42 /* FileObject.m */; };
+		81165EAF181C25DA00545D16 /* SizeLabelValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 81165EAE181C25DA00545D16 /* SizeLabelValueTransformer.m */; };
+		812C4731181AE18E007682CB /* RomFileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 812C4730181AE18E007682CB /* RomFileController.m */; };
+		812C4738181B0E93007682CB /* BytesValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 812C4737181B0E93007682CB /* BytesValueTransformer.m */; };
 		813231C017F0580C00C4C7E4 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 813231BD17F0580C00C4C7E4 /* index.html */; };
 		813231C217F0580C00C4C7E4 /* MacRomanHelp.png in Resources */ = {isa = PBXBuildFile; fileRef = 813231BF17F0580C00C4C7E4 /* MacRomanHelp.png */; };
 		813231C517F05A5400C4C7E4 /* index.html in CopyFiles */ = {isa = PBXBuildFile; fileRef = 813231BD17F0580C00C4C7E4 /* index.html */; };
@@ -17,7 +19,6 @@
 		81451ABB14FB973000644AF4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 81451ABA14FB973000644AF4 /* main.m */; };
 		81451ABF14FB973000644AF4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 81451ABD14FB973000644AF4 /* Credits.rtf */; };
 		81451AC514FB973000644AF4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81451AC314FB973000644AF4 /* MainMenu.xib */; };
-		81451ACD14FB977600644AF4 /* FileHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 81451ACC14FB977600644AF4 /* FileHandler.m */; };
 		8160F98617E9A4A400DED4C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8160F98517E9A4A400DED4C9 /* AppDelegate.m */; };
 		8189729B17EB39C400BDE239 /* vMac.png in Resources */ = {isa = PBXBuildFile; fileRef = 8189729A17EB39C400BDE239 /* vMac.png */; };
 		818972A317EB39FC00BDE239 /* EmulatorIconValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 818972A217EB39FC00BDE239 /* EmulatorIconValueTransformer.m */; };
@@ -47,8 +48,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8131F938150E46B40030DC42 /* FileObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileObject.h; sourceTree = "<group>"; };
-		8131F939150E46B40030DC42 /* FileObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileObject.m; sourceTree = "<group>"; };
+		81165EAD181C25DA00545D16 /* SizeLabelValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; path = SizeLabelValueTransformer.h; sourceTree = "<group>"; };
+		81165EAE181C25DA00545D16 /* SizeLabelValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SizeLabelValueTransformer.m; sourceTree = "<group>"; };
+		812C472F181AE18E007682CB /* RomFileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RomFileController.h; sourceTree = "<group>"; };
+		812C4730181AE18E007682CB /* RomFileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RomFileController.m; sourceTree = "<group>"; };
+		812C4736181B0E93007682CB /* BytesValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BytesValueTransformer.h; sourceTree = "<group>"; };
+		812C4737181B0E93007682CB /* BytesValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BytesValueTransformer.m; sourceTree = "<group>"; };
 		813231BD17F0580C00C4C7E4 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		813231BF17F0580C00C4C7E4 /* MacRomanHelp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MacRomanHelp.png; sourceTree = "<group>"; };
 		81451AAA14FB973000644AF4 /* Mac ROMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mac ROMan.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,8 +68,6 @@
 		81451ABE14FB973000644AF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		81451AC014FB973000644AF4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		81451AC414FB973000644AF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		81451ACB14FB977600644AF4 /* FileHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHandler.h; sourceTree = "<group>"; };
-		81451ACC14FB977600644AF4 /* FileHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHandler.m; sourceTree = "<group>"; };
 		8160F98517E9A4A400DED4C9 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		8189729A17EB39C400BDE239 /* vMac.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vMac.png; sourceTree = "<group>"; };
 		818972A117EB39FC00BDE239 /* EmulatorIconValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmulatorIconValueTransformer.h; sourceTree = "<group>"; };
@@ -143,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				81A684A3151A60CA000B4528 /* Icons */,
-				81E15C39151BDDD100565D43 /* Models */,
 				81E15C3A151BDDE800565D43 /* Views */,
 				81E15C37151BDDB300565D43 /* Controllers */,
 				81451AB514FB973000644AF4 /* Supporting Files */,
@@ -190,19 +192,14 @@
 				818972A217EB39FC00BDE239 /* EmulatorIconValueTransformer.m */,
 				81C5C63F17F03F1C00CF2B46 /* EmulatorNameValueTransformer.h */,
 				81C5C64017F03F1C00CF2B46 /* EmulatorNameValueTransformer.m */,
+				812C4736181B0E93007682CB /* BytesValueTransformer.h */,
+				812C4737181B0E93007682CB /* BytesValueTransformer.m */,
+				81165EAD181C25DA00545D16 /* SizeLabelValueTransformer.h */,
+				81165EAE181C25DA00545D16 /* SizeLabelValueTransformer.m */,
+				812C472F181AE18E007682CB /* RomFileController.h */,
+				812C4730181AE18E007682CB /* RomFileController.m */,
 			);
 			name = Controllers;
-			sourceTree = "<group>";
-		};
-		81E15C39151BDDD100565D43 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				81451ACB14FB977600644AF4 /* FileHandler.h */,
-				81451ACC14FB977600644AF4 /* FileHandler.m */,
-				8131F938150E46B40030DC42 /* FileObject.h */,
-				8131F939150E46B40030DC42 /* FileObject.m */,
-			);
-			name = Models;
 			sourceTree = "<group>";
 		};
 		81E15C3A151BDDE800565D43 /* Views */ = {
@@ -289,12 +286,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				81451ABB14FB973000644AF4 /* main.m in Sources */,
-				81451ACD14FB977600644AF4 /* FileHandler.m in Sources */,
 				819523C1150A042200114146 /* DropView.m in Sources */,
-				8131F93A150E46B40030DC42 /* FileObject.m in Sources */,
 				8160F98617E9A4A400DED4C9 /* AppDelegate.m in Sources */,
 				818972A317EB39FC00BDE239 /* EmulatorIconValueTransformer.m in Sources */,
 				81C5C64117F03F1D00CF2B46 /* EmulatorNameValueTransformer.m in Sources */,
+				812C4731181AE18E007682CB /* RomFileController.m in Sources */,
+				812C4738181B0E93007682CB /* BytesValueTransformer.m in Sources */,
+				81165EAF181C25DA00545D16 /* SizeLabelValueTransformer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

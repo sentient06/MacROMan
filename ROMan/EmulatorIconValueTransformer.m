@@ -31,42 +31,47 @@
 //------------------------------------------------------------------------------
 
 #import "EmulatorIconValueTransformer.h"
+#import "RomFileController.h"
 
 @implementation EmulatorIconValueTransformer
 
 + (Class)transformedValueClass {
     return [NSImage class]; 
 }
+
 + (BOOL)allowsReverseTransformation { 
     return NO; 
 }
 
 - (id)transformedValue:(id)value {
     
-    long iconValue = [value integerValue];
+    int iconValue = [value intValue];
     
     // 0 = None
-    // 1 = vMac
-    // 2 = BasiliskII
-    // 3 = vMacBasilisk
-    // 4 = Sheepshaver
-    // 5 = Unsupported
+    // 1 = vMacNormal
+    // 2 = vMacSpecial
+    // 3 = BasiliskII
+    // 4 = vMacBasilisk
+    // 5 = Sheepshaver
+    // 6 = Unsupported
     
     switch (iconValue) {
-        case 1:
+        case vMacNormal:
             return [NSImage imageNamed:@"vMac.png"];
-        case 2:
+        case vMacSpecial:
+            return [NSImage imageNamed:@"vMac.png"];
+        case BasiliskII:
             return [NSImage imageNamed:@"BasiliskII.png"];
-        case 3:
+        case vMacBasilisk:
             return [NSImage imageNamed:@"Basilisk.png"];
-        case 4:
+        case Sheepshaver:
             return [NSImage imageNamed:@"Sheepshaver.png"];
-        case 5:
+        case Unsupported:
             return [NSImage imageNamed:@"None.png"];
-            
     }
     
     return nil;
+
 }
 
 @end

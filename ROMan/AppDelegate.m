@@ -31,6 +31,7 @@
 //------------------------------------------------------------------------------
 
 #import "AppDelegate.h"
+#import "RomFileController.h"
 
 //------------------------------------------------------------------------------
 
@@ -44,34 +45,30 @@
 //------------------------------------------------------------------------------
 // Standard variables synthesisers.
 
-@synthesize listOfFiles;
-@synthesize details, comments, checksum, moreInfo, romSize;
-@synthesize supportedEmulators;
-@synthesize vMac, BasiliskII, Sheepshaver;
+@synthesize fileIcon = _fileIcon;
+
+@synthesize emulator;
+@synthesize fileSize;
+@synthesize macModel;
+@synthesize comments;
+@synthesize checksum;
 
 //------------------------------------------------------------------------------
 // Methods.
 
 #pragma mark – Dealloc
 
-/*!
- * @method      dealloc:
- * @discussion  Always in the top of the files!
- */
-- (void)dealloc {
-    [listOfFiles release];
-    [super dealloc];
+- (void)setFileIconPlaceholder:(NSImage *)newIcon {
+    [_fileIcon setImage:newIcon];
 }
 
-- (void)setDetails:(NSString*)newDetails AndComments:(NSString *)newComments {
-    [self setDetails:newDetails];
-    [self setComments:newComments];
-}
-
-- (void)setDetails:(NSString *)newDetails AndComments:(NSString *)newComments AndChecksum:(NSString *)newChecksum {
-    [self setDetails:newDetails];
-    [self setComments:newComments];
-    [self setChecksum:newChecksum];
+- (void)setVariablesFromRomController:(RomFileController *)romFileController {
+    [self setMacModel:[romFileController macModel]];
+    [self setComments:[romFileController comments]];
+    [self setChecksum:[romFileController checksum]];
+    [self setEmulator:[romFileController emulator]];
+    [self setFileSize:[romFileController fileSize]];
+    [self setFileIconPlaceholder:[NSImage imageNamed:@"RomImageDocument.icns"]];
 }
 
 //------------------------------------------------------------------------------
@@ -91,17 +88,35 @@
         return YES;
     }
 }
+
+- (BOOL)application:(NSApplication *)theApplication openFile:(NSString *)filename {
+
+    RomFileController * romFileController = [[RomFileController alloc] init];
+    [romFileController parseFile:filename];
+    [self setVariablesFromRomController:romFileController];
+    [romFileController release];
+    
+    return YES;
+}
+
 //------------------------------------------------------------------------------
 // Standard methods.
 
 #pragma mark – Standard methods
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        fileSize = -1;
+    }
+    return self;
+}
+
 /*!
  * @link Check XCode quick help.
  */
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    listOfFiles = [[NSMutableArray alloc] initWithCapacity:1];
-    [self setDetails:@"No ROM file detected"];
+    [self setMacModel:@"No ROM file detected"];
     [self setComments:@""];
 }
 

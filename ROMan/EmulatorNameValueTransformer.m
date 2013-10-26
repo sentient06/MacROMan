@@ -31,6 +31,7 @@
 //------------------------------------------------------------------------------
 
 #import "EmulatorNameValueTransformer.h"
+#import "RomFileController.h"
 
 @implementation EmulatorNameValueTransformer
 
@@ -53,15 +54,17 @@
     // 5 = Unsupported
     
     switch (iconValue) {
-        case 1:
-            return @"vMac";
-        case 2:
+        case vMacNormal:
+            return @"Mini vMac";
+        case vMacSpecial:
+            return @"Mini vMac (if compiled)";
+        case BasiliskII:
             return @"Basilisk II";
-        case 3:
-            return @"vMac & Basilisk II";
-        case 4:
+        case vMacBasilisk:
+            return @"Mini vMac & Basilisk II";
+        case Sheepshaver:
             return @"Sheepshaver";
-        case 5:
+        case Unsupported:
             return @"Unsupported";
             
     }

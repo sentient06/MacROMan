@@ -1,9 +1,9 @@
 //
-//  AppDelegate.h
-//  ROMan
+//  RomFileController.h
+//  Mac ROMan
 //
-//  Created by Giancarlo Mariot on 27/02/2012.
-//  Copyright (c) 2012 Giancarlo Mariot. All rights reserved.
+//  Created by Giancarlo Mariot on 25/10/2013.
+//  Copyright (c) 2013 Giancarlo Mariot. All rights reserved.
 //
 //------------------------------------------------------------------------------
 //
@@ -30,15 +30,18 @@
 //
 //------------------------------------------------------------------------------
 
-#import <Cocoa/Cocoa.h>
-#import "DropView.h"
+#import <Foundation/Foundation.h>
 
-@class RomFileController;
+enum EmulatorTypes {
+    vMacNormal   = 1
+  , vMacSpecial  = 2
+  , BasiliskII   = 3
+  , vMacBasilisk = 4
+  , Sheepshaver  = 5
+  , Unsupported  = 6
+};
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
-
-@property (assign) IBOutlet NSWindow    * window;
-@property (assign) IBOutlet NSImageView * fileIcon;
+@interface RomFileController : NSObject
 
 @property (assign) NSInteger emulator;
 @property (assign) NSInteger fileSize;
@@ -46,7 +49,10 @@
 @property (copy) NSString * comments;
 @property (copy) NSString * checksum;
 
-- (void)setFileIconPlaceholder:(NSImage *)newIcon;
-- (void)setVariablesFromRomController:(RomFileController *)romFileController;
++ (BOOL)validateFile:(NSString *)filePath;
+
+- (void)parseFile:(NSString *)filePath;
+
+//- (void)readRomFileFrom:(NSString *)filePath;
 
 @end

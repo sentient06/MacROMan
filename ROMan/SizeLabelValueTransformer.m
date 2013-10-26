@@ -1,9 +1,9 @@
 //
-//  FileHandler.h
-//  ROMan
+//  NilValueTransformer.m
+//  Mac ROMan
 //
-//  Created by Giancarlo Mariot on 27/02/2012.
-//  Copyright (c) 2012 Giancarlo Mariot. All rights reserved.
+//  Created by Giancarlo Mariot on 26/09/2013.
+//  Copyright (c) 2013 Giancarlo Mariot. All rights reserved.
 //
 //------------------------------------------------------------------------------
 //
@@ -30,16 +30,33 @@
 //
 //------------------------------------------------------------------------------
 
-#import <Foundation/Foundation.h>
+#import "SizeLabelValueTransformer.h"
+#import "BytesValueTransformer.h"
 
-@interface FileHandler : NSObject {
-@private
+@implementation SizeLabelValueTransformer
 
++ (Class)transformedValueClass {
+    return [NSString class]; 
 }
 
-@property (copy) NSString * fileDetails, * comments, * checksum, * moreInfo, * romSize;
-@property BOOL vMac, BasiliskII, Sheepshaver, processor68000, processor68020, processor68030, processor68040, processorPPC, unsupported;
++ (BOOL)allowsReverseTransformation { 
+    return NO; 
+}
 
-- (void) readRomFileFrom:(NSString*)filePath;
+- (id)transformedValue:(id)value {
+
+    if ([value isKindOfClass:[NSNumber class]])
+        if ([value intValue] < 0)
+            return @"";
+    
+    BytesValueTransformer * bytesTransformer = [[BytesValueTransformer alloc] init];
+    NSString * transformedValue = [[
+        [NSString alloc] initWithString:
+            [bytesTransformer transformedValue:value]
+    ] autorelease];
+    [bytesTransformer release];
+    
+    return [NSString stringWithFormat:@"Size:\n%@", transformedValue];
+}
 
 @end

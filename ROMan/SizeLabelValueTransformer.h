@@ -1,9 +1,9 @@
 //
-//  FileDetails.m
-//  ROMan
+//  NilValueTransformer.h
+//  Mac ROMan
 //
-//  Created by Giancarlo Mariot on 12/03/2012.
-//  Copyright (c) 2012 Giancarlo Mariot. All rights reserved.
+//  Created by Giancarlo Mariot on 26/09/2013.
+//  Copyright (c) 2013 Giancarlo Mariot. All rights reserved.
 //
 //------------------------------------------------------------------------------
 //
@@ -30,13 +30,8 @@
 //
 //------------------------------------------------------------------------------
 
-#import "FileObject.h"
+#import <Foundation/Foundation.h>
 
-@implementation FileObject
-
-@synthesize path, model, bytes;
-@synthesize icon;
-//@synthesize recognised;
-
+@interface SizeLabelValueTransformer : NSValueTransformer
 
 @end
