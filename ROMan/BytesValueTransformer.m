@@ -58,24 +58,34 @@
 		return [NSString stringWithFormat:@"%d bytes", intSize];
     
 	floatSize = floatSize / 1024;
-    intSize = intSize / 1024;
-	if (floatSize<1023)
-        if (simple)
-            return      [NSString stringWithFormat:@"%d KB", intSize];
-        else return [NSString stringWithFormat:@"%1.1f KB", floatSize];
+    intSize   = intSize / 1024;
+
+	if (floatSize<1023){
+        if (simple) {
+            return [NSString stringWithFormat:@"%d KB", intSize];
+        } else {
+            return [NSString stringWithFormat:@"%1.1f KB", floatSize];
+        }
+    }
+    
+	floatSize = floatSize / 1024;
+    intSize   = intSize / 1024;
+    
+	if (floatSize<1023) {
+        if (simple) {
+            return [NSString stringWithFormat:@"%d MB", intSize];
+        } else {
+            return [NSString stringWithFormat:@"%1.1f MB", floatSize];
+        }
+    }
     
 	floatSize = floatSize / 1024;
     intSize = intSize / 1024;
-	if (floatSize<1023)
-        if (simple)
-            return      [NSString stringWithFormat:@"%d MB", intSize];
-        else return [NSString stringWithFormat:@"%1.1f MB", floatSize];
-    
-	floatSize = floatSize / 1024;
-    intSize = intSize / 1024;
-    if (simple)
-		return      [NSString stringWithFormat:@"%d GB", intSize];
-    else return [NSString stringWithFormat:@"%1.1f GB", floatSize];
+    if (simple) {
+		return [NSString stringWithFormat:@"%d GB", intSize];
+    } else {
+        return [NSString stringWithFormat:@"%1.1f GB", floatSize];
+    }
     
 }
 
