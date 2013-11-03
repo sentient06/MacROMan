@@ -48,6 +48,7 @@
 @synthesize fileIcon = _fileIcon;
 @synthesize emulator;
 @synthesize fileSize;
+@synthesize madeTest;
 @synthesize macModel;
 @synthesize comments;
 @synthesize checksum;
@@ -68,12 +69,21 @@
  * @abstract Sets all window informtion.
  */
 - (void)setVariablesFromRomController:(RomFileController *)romFileController {
+    
+        if ([romFileController madeTest])
+            [self setMadeTest:1];
+        else
+            if ([romFileController emulator] == Unsupported)
+                [self setMadeTest:-1];
+            else
+                [self setMadeTest:0];
+    
     [self setMacModel:[romFileController macModel]];
     [self setComments:[romFileController comments]];
     [self setChecksum:[romFileController checksum]];
     [self setEmulator:[romFileController emulator]];
     [self setFileSize:[romFileController fileSize]];
-    [self setFileIconPlaceholder:[NSImage imageNamed:@"RomImageDocument.icns"]];
+    [self setFileIconPlaceholder:[NSImage imageNamed:@"ROMImageIcon2SnowLeopard.icns"]];
 }
 
 //------------------------------------------------------------------------------
@@ -127,7 +137,8 @@
 - (id)init {
     self = [super init];
     if (self) {
-        fileSize = -1;
+//        fileSize = -1;
+        madeTest = -1;
         loadedFile = NO;
     }
     return self;

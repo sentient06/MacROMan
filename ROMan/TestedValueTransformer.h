@@ -32,6 +32,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SizeLabelValueTransformer : NSValueTransformer
+@interface TestedValueTransformer : NSValueTransformer
 
 @end

@@ -48,11 +48,13 @@ enum EmulatorTypes {
     id checksum;
     int emulator;
     int fileSize;
+    BOOL madeTest;
     /// ----------------------------
 }
 
 @property (assign) int emulator;
 @property (assign) int fileSize;
+@property (assign) BOOL madeTest;
 @property (copy) NSString * macModel;
 @property (copy) NSString * comments;
 @property (copy) NSString * checksum;

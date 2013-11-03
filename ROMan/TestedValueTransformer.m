@@ -30,10 +30,9 @@
 //
 //------------------------------------------------------------------------------
 
-#import "SizeLabelValueTransformer.h"
-#import "BytesValueTransformer.h"
+#import "TestedValueTransformer.h"
 
-@implementation SizeLabelValueTransformer
+@implementation TestedValueTransformer
 
 + (Class)transformedValueClass {
     return [NSString class]; 
@@ -44,19 +43,11 @@
 }
 
 - (id)transformedValue:(id)value {
-
-    if ([value isKindOfClass:[NSNumber class]])
-        if ([value intValue] < 0)
-            return @"";
-    
-    BytesValueTransformer * bytesTransformer = [[BytesValueTransformer alloc] init];
-    NSString * transformedValue = [[
-        [NSString alloc] initWithString:
-            [bytesTransformer transformedValue:value]
-    ] autorelease];
-    [bytesTransformer release];
-    
-    return [NSString stringWithFormat:@"Size:\n%@", transformedValue];
+    if ([value intValue] == 1)
+        return @"Tested";
+    if ([value intValue] == 0)
+        return @"Not tested";
+    return nil;
 }
 
 @end

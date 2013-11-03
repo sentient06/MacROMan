@@ -49,9 +49,9 @@
 
     switch (iconValue) {
         case vMacNormal:
-            return @"Mini vMac";
+            return @"Mini vMac (standard)";
         case vMacSpecial:
-            return @"Mini vMac (if compiled)";
+            return @"Mini vMac (model-compiled)";
         case BasiliskII:
             return @"Basilisk II";
         case vMacBasilisk:
