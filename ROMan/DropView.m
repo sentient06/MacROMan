@@ -48,7 +48,7 @@
     NSPasteboard * pboard = [sender draggingPasteboard];
     NSArray      * urls   = [pboard propertyListForType:NSFilenamesPboardType];
     // First element only:
-    NSString * firstElement  = [[[NSString alloc] initWithFormat:[urls objectAtIndex:0]] autorelease];
+    NSString * firstElement  = [[[NSString alloc] initWithString:[urls objectAtIndex:0]] autorelease];
     BOOL validFile = [RomFileController validateFile:[firstElement stringByExpandingTildeInPath]];
     if (validFile) return YES;
     return NO;
