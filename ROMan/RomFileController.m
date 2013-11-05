@@ -37,7 +37,6 @@
 
 @synthesize emulator;
 @synthesize fileSize;
-@synthesize madeTest;
 @synthesize macModel;
 @synthesize comments;
 @synthesize checksum;
@@ -93,8 +92,8 @@
     Byte * byteData = (Byte *)malloc(fileSize);
     memcpy(byteData, [data bytes], fileSize);
 
-    checksum = [NSString stringWithFormat: @"%X", ntohl(*(uint32 *)byteData)];
-    madeTest = NO;
+    checksum = [NSString stringWithFormat: @"Checksum: %X", ntohl(*(uint32 *)byteData)];
+    emulator = Unknown;
     
     switch( ntohl(*(uint32 *)byteData) ) {
             
@@ -104,14 +103,12 @@
             comments = @"First Macintosh ever made.\nThis ROM can't be used on emulation.";
             // processor68000 = YES;
             emulator = Unsupported;
-            madeTest = YES;
             break;
         case 0x28BA4E50:
             macModel = @"Macintosh 512K";
             comments = @"Second Macintosh ever made.\nThis ROM can't be used on emulation.";
             // processor68000 = YES;
             emulator = Unsupported;
-            madeTest = YES;
             break;
             // no basilisk
             
@@ -121,21 +118,18 @@
             comments = @"This ROM was buggy and had 2 revisions!\nvMac can't boot from it.\nThe second revision (v3) is more recommended.";
             // processor68000 = YES;
             emulator = Unsupported;
-            madeTest = YES;
             break;
         case 0x4D1EEAE1:
             macModel = @"Macintosh Plus v2 Lonely Heifers";
             comments = @"This ROM was the first revision and still had some bugs.\nv3 is more recommended.";
             emulator = vMacNormal;
             // processor68000 = YES;
-            madeTest = YES;
             break;
         case 0x4D1F8172:
             macModel = @"Macintosh Plus v3 Loud Harmonicas";
             comments = @"Best Mac Plus ROM, second revision from the original.\nGood for vMac.";
             emulator = vMacNormal;
             // processor68000 = YES;
-            madeTest = YES;
             break;
             // no basilisk
             
@@ -144,8 +138,6 @@
             macModel = @"Macintosh II v1";
             comments = @"First Mac II ROM, had a memory problem\nThis one is rare!\nvMac won't boot it.";//bug
             // processor68020 = YES;
-            emulator = Unsupported;
-            madeTest = YES;
             break;
         case 0xB2E362A8:
             macModel = @"Macintosh SE"; //no checksum
@@ -259,14 +251,12 @@
             comments = @"AppleTalk is not supported on Basilisk II.\nThis is the worst known 1MB ROM.";
             emulator = BasiliskII;
             // processor68040 = YES;
-            madeTest = YES;
             break;
         case 0x3DC27823:
             macModel = @"Macintosh Quadra 950";
             comments = @"AppleTalk is not supported on Basilisk II.";
             emulator = BasiliskII;
             // processor68040 = YES;
-            madeTest = YES;
             break;
             //====
         case 0x49579803: //very strange didn't find it, called IIvx //49579803
@@ -311,23 +301,21 @@
             macModel = @"Quadra/Centris 610 or 650 or 800";
             emulator = BasiliskII;
             // processor68040 = YES;
-            madeTest = YES;
             break;
         case 0x0024D346:
             macModel = @"Powerbook Duo 270C";
             // processor68030 = YES;
             break;
         case 0xEDE66CBD:
-            macModel = @"Color Classic II, LC 550, Performa 275/550/560 & Mac TV";//Maybe Performa 450-550";
+            macModel = @"Color Classic II, LC 550, Performa 275/550/560, Mac TV";//Maybe Performa 450-550";
             emulator = BasiliskII;
             // processor68030 = YES;
             break;
         case 0xFF7439EE:
-            macModel = @"LC 475/575, Quadra 605 & Performa 475/476/575/577/578";
+            macModel = @"LC 475/575 Quadra 605 Performa 475/476/575/577/578";
             comments = @"Codename Aladdin";
             emulator = BasiliskII;
             // processor68040 = YES; //FPU?
-            madeTest = YES;
             break;
         case 0x015621D7:
             macModel = @"Powerbook Duo 280 or 280C";
@@ -338,7 +326,6 @@
             comments = @"Codename Crusader";
             emulator = BasiliskII;
             // processor68040 = YES;
-            madeTest = YES;
             break;
         case 0xFDA22562:
             macModel = @"Powerbook 150";
@@ -355,7 +342,7 @@
             // 2048 KB
         case 0xB6909089:
             macModel = @"PowerBook 520/520c/540/540c";
-            comments = @"2MB ROM image. (There are two known others)";
+            comments = @"2MB ROM image. =D";
             //68LC040
             break;
         case 0x5BF10FD1:
@@ -365,7 +352,7 @@
             break;
         case 0x4D27039C:
             macModel = @"PowerBook 190 or 190cs";
-            comments = @"2MB ROM image. (There are two known others)";
+            comments = @"2MB ROM image. =D";
             //            emulator = BasiliskII;
             //            // processor68040 = YES; processor: 68LC040
             break;
@@ -403,17 +390,16 @@
             break;
         case 0x96CD923D:
             macModel = @"Power Mac 7200/7500/8500/9500 v1"; //Probably PPC Quadra
-            comments = @"";
+            comments = @"Runs on Sheepshaver";
             emulator = Sheepshaver;
             // processorPPC   = YES;
-            madeTest = YES;
             break;
         case 0x6F5724C0:
-            macModel = @"PowerMac/Performa 6400";
+            macModel = @"PowerM ac/Performa 6400";
             // processorPPC   = YES;
             break;
         case 0x83A21950:
-            macModel = @"PowerBook 1400 or 1400cs";
+            macModel = @"PowerBook 1400, 1400cs";
             // processorPPC   = YES;
             break;
         case 0x6E92FE08:
@@ -448,10 +434,9 @@
             //------------------------------------------------
             // New world
         case 0x3C434852:
-            macModel = @"Mac OS ROM 1.6";
-            comments = @"The famous New World ROM from Apple's update";
+            macModel = @"The famous New World ROM from Apple's update";
+            comments = @"Mac OS 9.0.4! Yeah!";
             emulator = Sheepshaver;
-            madeTest = YES;
             break;
             
         default:            
@@ -476,7 +461,6 @@
                 default:
                     macModel = @"Unsupported ROM size.";
                     comments = @"Size should be 64KB, 128KB, 256KB, 512KB, 1MB, 2MB, 3MB or 4MB.";
-                    emulator = Unsupported;
                     break;
                     
             }

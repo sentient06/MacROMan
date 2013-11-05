@@ -39,6 +39,7 @@ enum EmulatorTypes {
   , vMacBasilisk = 4
   , Sheepshaver  = 5
   , Unsupported  = 6
+  , Unknown      = 7
 };
 
 @interface RomFileController : NSObject {
