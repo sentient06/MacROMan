@@ -43,6 +43,7 @@
     id macModel;
     id comments;
     id checksum;
+    id codeName;
     int emulator;
     int fileSize;
     int madeTest;
@@ -58,6 +59,7 @@
 @property (copy) NSString * macModel;
 @property (copy) NSString * comments;
 @property (copy) NSString * checksum;
+@property (copy) NSString * codeName;
 
 - (void)setFileIconPlaceholder:(NSImage *)newIcon;
 - (void)setVariablesFromRomController:(RomFileController *)romFileController;

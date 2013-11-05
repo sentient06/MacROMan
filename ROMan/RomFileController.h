@@ -47,6 +47,7 @@ enum EmulatorTypes {
     id macModel;
     id comments;
     id checksum;
+    id codeName;
     int emulator;
     int fileSize;
     BOOL madeTest;
@@ -59,6 +60,7 @@ enum EmulatorTypes {
 @property (copy) NSString * macModel;
 @property (copy) NSString * comments;
 @property (copy) NSString * checksum;
+@property (copy) NSString * codeName;
 
 + (BOOL)validateFile:(NSString *)filePath;
 

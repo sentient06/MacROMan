@@ -52,6 +52,7 @@
 @synthesize macModel;
 @synthesize comments;
 @synthesize checksum;
+@synthesize codeName;
 
 //------------------------------------------------------------------------------
 // Methods.
@@ -83,6 +84,7 @@
     [self setChecksum:[romFileController checksum]];
     [self setEmulator:[romFileController emulator]];
     [self setFileSize:[romFileController fileSize]];
+    [self setCodeName:[romFileController codeName]];
     [self setFileIconPlaceholder:[NSImage imageNamed:@"ROMImageIcon2SnowLeopard.icns"]];
 }
 

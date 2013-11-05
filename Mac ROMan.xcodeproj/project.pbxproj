@@ -22,6 +22,8 @@
 		81585DF9182453C2002C277F /* ROMImageIcon2MountainLion.icns in Resources */ = {isa = PBXBuildFile; fileRef = 81585DF7182453C2002C277F /* ROMImageIcon2MountainLion.icns */; };
 		81585DFA182453C2002C277F /* ROMImageIcon2SnowLeopard.icns in Resources */ = {isa = PBXBuildFile; fileRef = 81585DF8182453C2002C277F /* ROMImageIcon2SnowLeopard.icns */; };
 		8160F98617E9A4A400DED4C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8160F98517E9A4A400DED4C9 /* AppDelegate.m */; };
+		81720EA81829093C0090B5FD /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 81720EA71829093C0090B5FD /* NSString+MD5.m */; };
+		81720EAB18290A990090B5FD /* NSData+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 81720EAA18290A990090B5FD /* NSData+MD5.m */; };
 		8189729B17EB39C400BDE239 /* vMac.png in Resources */ = {isa = PBXBuildFile; fileRef = 8189729A17EB39C400BDE239 /* vMac.png */; };
 		818972A317EB39FC00BDE239 /* EmulatorIconValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 818972A217EB39FC00BDE239 /* EmulatorIconValueTransformer.m */; };
 		818972A717EB3D6200BDE239 /* BasiliskII.png in Resources */ = {isa = PBXBuildFile; fileRef = 818972A417EB3D6200BDE239 /* BasiliskII.png */; };
@@ -73,6 +75,10 @@
 		81585DF7182453C2002C277F /* ROMImageIcon2MountainLion.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ROMImageIcon2MountainLion.icns; sourceTree = "<group>"; };
 		81585DF8182453C2002C277F /* ROMImageIcon2SnowLeopard.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ROMImageIcon2SnowLeopard.icns; sourceTree = "<group>"; };
 		8160F98517E9A4A400DED4C9 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		81720EA61829093C0090B5FD /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		81720EA71829093C0090B5FD /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		81720EA918290A990090B5FD /* NSData+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MD5.h"; sourceTree = "<group>"; };
+		81720EAA18290A990090B5FD /* NSData+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MD5.m"; sourceTree = "<group>"; };
 		8189729A17EB39C400BDE239 /* vMac.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vMac.png; sourceTree = "<group>"; };
 		818972A117EB39FC00BDE239 /* EmulatorIconValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmulatorIconValueTransformer.h; sourceTree = "<group>"; };
 		818972A217EB39FC00BDE239 /* EmulatorIconValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmulatorIconValueTransformer.m; sourceTree = "<group>"; };
@@ -204,6 +210,10 @@
 				81165EAE181C25DA00545D16 /* TestedValueTransformer.m */,
 				812C472F181AE18E007682CB /* RomFileController.h */,
 				812C4730181AE18E007682CB /* RomFileController.m */,
+				81720EA61829093C0090B5FD /* NSString+MD5.h */,
+				81720EA71829093C0090B5FD /* NSString+MD5.m */,
+				81720EA918290A990090B5FD /* NSData+MD5.h */,
+				81720EAA18290A990090B5FD /* NSData+MD5.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -296,11 +306,13 @@
 				81451ABB14FB973000644AF4 /* main.m in Sources */,
 				819523C1150A042200114146 /* DropView.m in Sources */,
 				8160F98617E9A4A400DED4C9 /* AppDelegate.m in Sources */,
+				81720EA81829093C0090B5FD /* NSString+MD5.m in Sources */,
 				818972A317EB39FC00BDE239 /* EmulatorIconValueTransformer.m in Sources */,
 				81C5C64117F03F1D00CF2B46 /* EmulatorNameValueTransformer.m in Sources */,
 				812C4731181AE18E007682CB /* RomFileController.m in Sources */,
 				812C4738181B0E93007682CB /* BytesValueTransformer.m in Sources */,
 				81165EAF181C25DA00545D16 /* TestedValueTransformer.m in Sources */,
+				81720EAB18290A990090B5FD /* NSData+MD5.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
