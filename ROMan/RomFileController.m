@@ -48,26 +48,34 @@
  * @abstract Checks if file is of a valid format.
  */
 + (BOOL)validateFile:(NSString *)filePath {
+
+    
+//    NSArray * fileKinds = [[[NSArray alloc]
+//        initWithObjects:
+//          @"Unix Executable File"
+//          , @"Document"
+//          , @"ROM Image"
+//          , nil
+//    ] autorelease];
+    
+//    if (![[[filePath pathExtension] lowercaseString] isEqualTo:@"rom"])
+//        return NO;
     
     if (![[[filePath pathExtension] lowercaseString] isEqualTo:@"rom"])
-        return NO;
+        return YES;
     
     NSString * kind = nil;
     NSURL    * url = [NSURL fileURLWithPath:[filePath stringByExpandingTildeInPath]];
     
     LSCopyKindStringForURL((CFURLRef)url, (CFStringRef *)&kind);
     
-    NSArray * fileKinds = [[[NSArray alloc]
-        initWithObjects:
-          @"Unix Executable File"
-          , @"Document"
-          , @"ROM Image"
-          , nil
-    ] autorelease];
-    
-    if ([fileKinds containsObject:kind])
+    if ([kind isEqualToString:@"ROM Image"])
         return YES;
-    else return NO;
+    
+    if ([kind isEqualToString:@"Unix Executable File"])
+        return YES;
+    
+    return NO;
 }
 
 /*!
@@ -191,7 +199,8 @@
             // processor68000 = YES;
             break;
         case 0xA49F9914:
-            macModel = @"Macintosh Classic (XO)";
+            macModel = @"Macintosh Classic";
+            codeName = @"XO";
             comments = @"From Mac Classic with XO ROMDisk: It has the ability to boot from ROM by holding down cmd+opt+x+o at startup.\nLimited support in Basilisk II.";//Classic emulation is broken on Basilisk
             emulator = vMacSpecial;
             // processor68000 = YES;
@@ -205,7 +214,7 @@
             //------------------------------------------------
             // 512 KB
         case 0x4147DD77:
-            macModel = @"Macintosh IIfx (Stealth)";
+            macModel = @"Macintosh IIfx";
             codeName = @"Stealth, Blackbird, F-16, F-19, Four Square, IIxi, Zone 5, Weed-Whacker";
             comments = @"Emulation requires FPU and AppleTalk is not supported.";
             emulator = BasiliskII;
@@ -318,7 +327,7 @@
             // processor68030 = YES;
             break;
         case 0xECD99DC0:
-            macModel = @"Macintosh Color Classic / Performa 250";
+            macModel = @"Macintosh Color Classic or Performa 250";
             emulator = BasiliskII;
             // processor68020 = YES;
             // processor68030 = YES;
@@ -346,7 +355,7 @@
             break;
         case 0xFF7439EE:
             macModel = @"LC 475/575, Quadra 605 & Performa 475/476/575/577/578";
-            comments = @"Codename Aladdin";
+            codeName = @"Aladdin";
             emulator = BasiliskII;
             // processor68040 = YES; //FPU?
             madeTest = YES;
@@ -357,7 +366,7 @@
             break;
         case 0x06684214:
             macModel = @"LC/Quadra/Performa 630";
-            comments = @"Codename Crusader";
+            codeName = @"Crusader";
             emulator = BasiliskII;
             // processor68040 = YES;
             madeTest = YES;
@@ -377,7 +386,6 @@
             // 2048 KB
         case 0xB6909089:
             macModel = @"PowerBook 520/520c/540/540c";
-            comments = @"2MB ROM image. (There are two known others)";
             //68LC040
             break;
         case 0x5BF10FD1:
@@ -387,7 +395,6 @@
             break;
         case 0x4D27039C:
             macModel = @"PowerBook 190 or 190cs";
-            comments = @"2MB ROM image. (There are two known others)";
             //            emulator = BasiliskII;
             //            // processor68040 = YES; processor: 68LC040
             break;
@@ -497,30 +504,264 @@
                     break;
                 default:
                     
-                    if ([md5Hash isEqualToString:@"be65e1c4f04a3f2881d6e8de47d66454"]) {
-                        macModel = @"Mac OS ROM 1.6";
-                        comments = @"Very popular ROM extracted from the Mac OS ROM Update 1.0.\nAlso available on the Macintosh PowerBook G3 Series 8.6 Bundle.";
+                    newWorldRom = YES;
+
+                    if ([md5Hash isEqualToString:@"e0fc03faa589ee066c411b4603e0ac89"]) {
+                        macModel = @"Mac OS ROM 1.1";
+                        comments = @"";
                         emulator = Sheepshaver;
-                        madeTest = YES;
-                        newWorldRom = YES;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"17b134a0d837518498c06579aa4ff053"]) {
+                        macModel = @"Mac OS ROM 1.1.2";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"133ef27acf2f360341870f212c7207d7"]) {
+                        macModel = @"Mac OS ROM 1.1.5";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"3756f699eadaabf0abf8d3322bed70e5"]) {
+                        macModel = @"Mac OS ROM 1.2";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"483233f45e8ca33fd2fbe5201f06ac18"]) {
                         macModel = @"Mac OS ROM 1.2.1";
                         comments = @"Version from the iMac Update 1.1.\nAlso bundled on Mac OS 8.5.1 (Colors iMac 266 MHz Bundle).";
                         emulator = Sheepshaver;
                         madeTest = YES;
-                        newWorldRom = YES;
+                    } else
+                    if ([md5Hash isEqualToString:@"1bf445c27513dba473cca51219184b07"]) {
+                        macModel = @"Mac OS ROM 1.4";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"be65e1c4f04a3f2881d6e8de47d66454"]) {
+                        macModel = @"Mac OS ROM 1.6";
+                        comments = @"Very popular ROM extracted from the Mac OS ROM Update 1.0.\nAlso available on the Macintosh PowerBook G3 Series 8.6 Bundle.";
+                        emulator = Sheepshaver;
+                        madeTest = YES;
+                    } else
+                    if ([md5Hash isEqualToString:@"dd26176882d14c39219aca668d7e97cb"]) {
+                        macModel = @"Mac OS ROM 1.7.1";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"????????????????????????????????"]) {
+                        macModel = @"Mac OS ROM 1.8.1";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"722fe6481b4d5c04e005e5ba000eb00e"]) {
+                        macModel = @"Mac OS ROM 2.3.1";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"4bb3e019c5d7bfd5f3a296c13ad7f08f"]) {
                         macModel = @"Mac OS ROM 2.5.1";
                         comments = @"ROM from the Mac OS 8.6 bundled on Power Mac G4 (AGP).\nThis was rare before being seeded as a torrent (still difficult to get, though).";
                         emulator = Sheepshaver;
                         madeTest = YES;
-                        newWorldRom = YES;
+                    } else
+                    if ([md5Hash isEqualToString:@"d387acd4503ce24e941f1131433bbc0f"]) {
+                        macModel = @"Mac OS ROM 3.0";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"9e990cde6c30a3ab916c1390b29786c7"]) {
+                        macModel = @"Mac OS ROM 3.1.1";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"bbfbb4c884741dd75e03f3de67bf9370"]) {
+                        macModel = @"Mac OS ROM 3.2.1";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"386ea1c81730f9b06bfc2e6c36be8d59"]) {
+                        macModel = @"Mac OS ROM 3.5";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"????????????????????????????????"]) {
+                        macModel = @"Mac OS ROM 3.6";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"8f388ccf6f96c58bda5ae83d207ca85a"]) {
+                        macModel = @"Mac OS ROM 3.7";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"????????????????????????????????"]) {
+                        macModel = @"Mac OS ROM 3.8";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"bf9f186ba2dcaaa0bc2b9762a4bf0c4a"]) {
+                        macModel = @"Mac OS ROM 4.6.1";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"????????????????????????????????"]) {
+                        macModel = @"Mac OS ROM 4.9.1";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"52ea9e30d59796ce8c4822eeeb0f543e"]) {
+                        macModel = @"Mac OS ROM 5.2.1";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"????????????????????????????????"]) {
+                        macModel = @"Mac OS ROM 5.3.1";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"????????????????????????????????"]) {
+                        macModel = @"Mac OS ROM 5.5.1";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"5e9a959067e1261d19427f983dd10162"]) {
+                        macModel = @"Mac OS ROM 6.1";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"19d596fc3028612edb1553e4d2e0f345"]) {
+                        macModel = @"Mac OS ROM 6.7.1";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"14cd0b3d8a7e022620b815f4983269ce"]) {
+                        macModel = @"Mac OS ROM 7.5.1";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"28a08b4d5d5e4ab113c5fc1b25955a7c"]) {
+                        macModel = @"Mac OS ROM 7.8.1";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"1486fe0b293e23125c00b9209435365c"]) {
+                        macModel = @"Mac OS ROM 7.9.1";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"6fc4679862b2106055b1ce301822ffeb"]) {
+                        macModel = @"Mac OS ROM 8.3.1";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"f97d43821fea307578697a64b1705f8b"]) {
+                        macModel = @"Mac OS ROM 8.4";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"d81574f35e97a658eab99df52529251e"]) {
+                        macModel = @"Mac OS ROM 8.6.1";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"97db5e70d05ab7568d8a1f7ddd3b901a"]) {
+                        macModel = @"Mac OS ROM 8.7";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"65e3bc1fee886bbe1aabe0faa4b8cda2"]) {
+                        macModel = @"Mac OS ROM 8.9.1";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"66210b4f71df8a580eb175f52b9d0f88"]) {
+                        macModel = @"Mac OS ROM 9.0.1";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"c5f7aaaf28d7c7eac746e9f26b183816"]) {
+                        macModel = @"Mac OS ROM 9.1.1";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"13889037360fe1567c7e7f89807453b0"]) {
+                        macModel = @"Mac OS ROM 9.2.1f2";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"b36a5f1d814291a22457adfa2331b379"]) {
+                        macModel = @"Mac OS ROM 9.5.1";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"3c08de22aeaa7d7fdb14df848fbaa90d"]) {
+                        macModel = @"Mac OS ROM 9.6.1";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"e74f8c6bb52a641b856d821be7a65275"]) {
+                        macModel = @"Mac OS ROM 9.7.1";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"4e8d07f8e0d4af6d06336688013972c3"]) {
+                        macModel = @"Mac OS ROM 9.8.1";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"1fb3de4d87889c26068dd88779dc20e2"]) {
+                        macModel = @"Mac OS ROM 10.1.1";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"48fd7a428aaebeaec2dea347795a4910"]) {
+                        macModel = @"Mac OS ROM 10.2.1";
+                        comments = @"";
+                        emulator = Sheepshaver;
+                        madeTest = NO;
                     } else {
                         macModel = @"Unsupported ROM size.";
                         comments = @"Size should be 64KB, 128KB, 256KB, 512KB, 1MB, 2MB, 3MB or 4MB.";
                         emulator = Unsupported;
+                        newWorldRom = NO;
                     }
                     break;
                     

@@ -46,10 +46,6 @@
     
     float floatSize = [value floatValue];
     int intSize = [value intValue];
-    BOOL simple = NO;
-    
-    if (floatSize == intSize)
-        simple = YES;
     
     if (intSize == 0)
         return @"";
@@ -61,7 +57,7 @@
     intSize   = intSize / 1024;
 
 	if (floatSize<1023){
-        if (simple) {
+        if (floatSize == intSize) {
             return [NSString stringWithFormat:@"%d KB", intSize];
         } else {
             return [NSString stringWithFormat:@"%1.1f KB", floatSize];
@@ -72,7 +68,7 @@
     intSize   = intSize / 1024;
     
 	if (floatSize<1023) {
-        if (simple) {
+        if (floatSize == intSize) {
             return [NSString stringWithFormat:@"%d MB", intSize];
         } else {
             return [NSString stringWithFormat:@"%1.1f MB", floatSize];
@@ -81,7 +77,7 @@
     
 	floatSize = floatSize / 1024;
     intSize = intSize / 1024;
-    if (simple) {
+    if (floatSize == intSize) {
 		return [NSString stringWithFormat:@"%d GB", intSize];
     } else {
         return [NSString stringWithFormat:@"%1.1f GB", floatSize];
