@@ -554,7 +554,7 @@
                         emulator = Sheepshaver;
                         madeTest = NO;
                     } else
-                    if ([md5Hash isEqualToString:@"????????????????????????????????"]) {
+                    if ([md5Hash isEqualToString:@"02350bfe27c4dea1d2c13008efb3a036"]) {
                         macModel = @"Mac OS ROM 1.8.1";
                         comments = @"";
                         emulator = Sheepshaver;

@@ -49,6 +49,7 @@
 @synthesize emulator;
 @synthesize fileSize;
 @synthesize madeTest;
+@synthesize hideTest;
 @synthesize macModel;
 @synthesize comments;
 @synthesize checksum;
@@ -75,7 +76,7 @@
             [self setMadeTest:1];
         else
             if ([romFileController emulator] == Unsupported)
-                [self setMadeTest:-1];
+                [self setMadeTest:nil];
             else
                 [self setMadeTest:0];
     
@@ -117,6 +118,7 @@
 
 - (BOOL)application:(NSApplication *)theApplication openFile:(NSString *)filename {
 
+    madeTest = -1;
     RomFileController * romFileController = [[RomFileController alloc] init];
     [romFileController parseFile:filename];
     [self setVariablesFromRomController:romFileController];
