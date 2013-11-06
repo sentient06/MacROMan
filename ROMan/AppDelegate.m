@@ -49,7 +49,6 @@
 @synthesize emulator;
 @synthesize fileSize;
 @synthesize madeTest;
-@synthesize hideTest;
 @synthesize macModel;
 @synthesize comments;
 @synthesize checksum;
