@@ -75,8 +75,8 @@
         if ([romFileController madeTest])
             [self setMadeTest:1];
         else
-            if ([romFileController emulator] == Unsupported)
-                [self setMadeTest:nil];
+            if ([romFileController emulator] == Unsupported || [romFileController emulator] == Unknown)
+                [self setMadeTest:-1];
             else
                 [self setMadeTest:0];
     

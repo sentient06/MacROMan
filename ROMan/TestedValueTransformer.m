@@ -45,9 +45,11 @@
 - (id)transformedValue:(id)value {
     if ([value intValue] == 1)
         return @"Tested";
+    else
     if ([value intValue] == 0)
         return @"Not tested";
-    return nil;
+    else
+    return @"";
 }
 
 @end
