@@ -91,6 +91,7 @@
  * @link     https://en.wikipedia.org/wiki/Macintosh_Performa
  * @link     https://en.wikipedia.org/wiki/Timeline_of_Apple_Macintosh_models
  * @link     http://support.apple.com/kb/TA22055
+ * @link     https://www.princeton.edu/~achaney/tmve/wiki100k/docs/Power_Macintosh.html
  */
 - (void)parseFile:(NSString *)filePath {
     
