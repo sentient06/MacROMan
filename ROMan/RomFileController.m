@@ -406,34 +406,49 @@
         case 0x9FEB69B3:
             macModel = @"Power Mac 6100/7100/8100";
             // processorPPC   = YES;
+            emulator = Unsupported;
+            madeTest = YES;
             break;
         case 0x9C7C98F7:
             macModel = @"Workgroup Server 9150 80MHz";
             // processorPPC   = YES;
+            emulator = Unsupported;
+            madeTest = YES;
             break;
         case 0x9B7A3AAD:
             macModel = @"Power Mac 7100 (newer)";
             // processorPPC   = YES;
+            emulator = Unsupported;
+            madeTest = YES;
             break;
         case 0x63ABFD3F:
             macModel = @"Power Mac & Performa 5200/5300/6200/6300";
             // processorPPC   = YES;
+            emulator = Unsupported;
+            madeTest = YES;
             break;
         case 0x9B037F6F:
             macModel = @"Workgroup Server 9150 120MHz";
             // processorPPC   = YES;
+            emulator = Unsupported;
+            madeTest = YES;
             break;
         case 0x83C54F75:
-            macModel = @"PowerBook 2300 & PB5x0 PPC Upgrade";
+            macModel = @"PowerBook 2300 & PB5x0 PPC Upgrade"; //double-check
             // processorPPC   = YES;
+            emulator = Unsupported;
+            madeTest = YES;
             break;
         case 0x9630C68B:
             macModel = @"Power Mac 7200/7500/8500/9500 v2";
+            comments = @"This ROM is unstable when used with some versions of SheepShaver. Try turning on the 'ignoresegv' option and JIT if you run into problems.";
+            emulator = Sheepshaver;
             // processorPPC   = YES;
+            madeTest = YES;
             break;
         case 0x96CD923D:
-            macModel = @"Power Mac 7200/7500/8500/9500 v1"; //Probably PPC Quadra
-            comments = @"";
+            macModel = @"Power Mac 7200/7500/8500/9500 v1"; //unstable
+            comments = @"This ROM is unstable when used with SheepShaver. Try turning on the 'ignoresegv' option and/or disabling JIT if you run into problems.";
             emulator = Sheepshaver;
             // processorPPC   = YES;
             madeTest = YES;
@@ -449,18 +464,26 @@
         case 0x6E92FE08:
             macModel = @"Power Mac 6500";
             // processorPPC   = YES;
+            emulator = Sheepshaver;
+            madeTest = YES;
             break;
         case 0x960E4BE9:
             macModel = @"Power Mac 7300/7600/8600/9600 v1";
             // processorPPC   = YES;
+            emulator = Sheepshaver;
+            madeTest = YES;
             break;
         case 0x960FC647:
             macModel = @"Power Mac 8600 or 9600 v2";
             // processorPPC   = YES;
+            emulator = Sheepshaver;
+            madeTest = YES;
             break;
         case 0x78F57389:
             macModel = @"Power Mac G3 v3";
             // processorPPC   = YES;
+            emulator = Unsupported;
+            madeTest = YES;
             break;
         case 0x79D68D63:
             macModel = @"Power Mac G3 desktop";
@@ -469,10 +492,14 @@
         case 0xCBB01212:
             macModel = @"PowerBook G3 (Wallstreet)";
             // processorPPC   = YES;
+            emulator = Unsupported;
+            madeTest = YES;
             break;
         case 0xB46FFB63:
             macModel = @"PowerBook G3 (Wallstreet PDQ)";
             // processorPPC   = YES;
+            emulator = Unsupported;
+            madeTest = YES;
             break;
             
             //------------------------------------------------
@@ -609,9 +636,9 @@
                         emulator = Sheepshaver;
                         madeTest = NO;
                     } else
-                    if ([md5Hash isEqualToString:@"????????????????????????????????"]) {
+                    if ([md5Hash isEqualToString:@"3f182e059a60546f93114ed3798d5751"]) {
                         macModel = @"Mac OS ROM 3.8";
-                        comments = @"Ethernet Update 1.0";
+                        comments = @"Extracted from Ethernet Update 1.0.\nVery clever!";
                         emulator = Sheepshaver;
                         madeTest = NO;
                     } else
@@ -713,7 +740,7 @@
                     } else
                     if ([md5Hash isEqualToString:@"c5f7aaaf28d7c7eac746e9f26b183816"]) {
                         macModel = @"Mac OS ROM 9.1.1";
-                        comments = @"";
+                        comments = @"From iMac G4 Restore CD.";
                         emulator = Unsupported;
                         madeTest = NO;
                     } else
