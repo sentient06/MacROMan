@@ -4,21 +4,6 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
-	<key>CFBundleDocumentTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>rom</string>
-			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string>ROMImageIcon2SnowLeopard</string>
-			<key>CFBundleTypeName</key>
-			<string>ROM Image</string>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-		</dict>
-	</array>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleHelpBookFolder</key>
@@ -36,7 +21,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.2.3b</string>
+	<string>1.2.4b</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
@@ -44,10 +29,32 @@
 	<key>LSMinimumSystemVersion</key>
 	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2013 Giancarlo Mariot. All rights reserved.</string>
+	<string>Copyright © 2013-2016 Giancarlo Mariot. All rights reserved.</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeDescription</key>
+			<string>ROM Image</string>
+			<key>UTTypeIconFile</key>
+			<string>ROMImageIcon2MountainLion</string>
+			<key>UTTypeIdentifier</key>
+			<string>public.rom</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>rom</string>
+				</array>
+				<key>public.mime-type</key>
+				<array>
+					<string>binary</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
 </dict>
 </plist>

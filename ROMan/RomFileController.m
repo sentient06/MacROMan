@@ -64,10 +64,8 @@
     if (![[[filePath pathExtension] lowercaseString] isEqualTo:@"rom"])
         return YES;
     
-    NSString * kind = nil;
-    NSURL    * url = [NSURL fileURLWithPath:[filePath stringByExpandingTildeInPath]];
+    NSString * kind = (NSString *)UTTypeCopyDescription((CFStringRef)@"public.rom");
     
-    LSCopyKindStringForURL((CFURLRef)url, (CFStringRef *)&kind);
     
     if ([kind isEqualToString:@"ROM Image"])
         return YES;
