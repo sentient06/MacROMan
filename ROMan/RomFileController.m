@@ -3,6 +3,7 @@
 //  Mac ROMan
 //
 //  Created by Giancarlo Mariot on 25/10/2013.
+//  Updated by Em Adespoton on 30/10/2018.
 //  Copyright (c) 2013 Giancarlo Mariot. All rights reserved.
 //
 //------------------------------------------------------------------------------
@@ -90,6 +91,8 @@
  * @link     https://en.wikipedia.org/wiki/Timeline_of_Apple_Macintosh_models
  * @link     http://support.apple.com/kb/TA22055
  * @link     https://www.princeton.edu/~achaney/tmve/wiki100k/docs/Power_Macintosh.html
+ * @link     https://docs.google.com/spreadsheets/d/1wB2HnysPp63fezUzfgpk0JX_b7bXvmAg6-Dk7QDyKPY
+ * @link     https://apple.wikia.com/wiki/List_of_Mac_OS_versions
  */
 - (void)parseFile:(NSString *)filePath {
     
@@ -115,24 +118,24 @@
         case 0x28BA61CE:
             macModel = @"Macintosh 128";
             codeName = @"Macintosh";
-            comments = @"First Macintosh ever made.\nThis ROM can't be used on emulation.";
+            comments = @"First Macintosh ever made.\nThis ROM can be used with Mini vMac 128k.";
             // processor68000 = YES;
-            emulator = Unsupported;
+            emulator = vMacSpecial;
             madeTest = YES;
             break;
         case 0x28BA4E50:
             macModel = @"Macintosh 512K";
             codeName = @"Fat Mac";
-            comments = @"Second Macintosh ever made.\nThis ROM can't be used on emulation.";
+            comments = @"Second Macintosh ever made.\nThis ROM can be used with Mini vMac  512k.";
             // processor68000 = YES;
-            emulator = Unsupported;
+            emulator = vMacSpecial;
             madeTest = YES;
             break;
             // no basilisk
             //------------------------------------------------
             // 128 KB
         case 0x4D1EEEE1:
-            macModel = @"Macintosh Plus v1 (Lonely Hearts)";
+            macModel = @"Macintosh Plus / 512Ke v1 (Lonely Hearts)";
             codeName = @"Mr. T";
             comments = @"This ROM was buggy and had 2 revisions!\nvMac can't boot from it.\nThe second revision (v3) is more recommended.";
             // processor68000 = YES;
@@ -140,7 +143,7 @@
             madeTest = YES;
             break;
         case 0x4D1EEAE1:
-            macModel = @"Macintosh Plus v2 (Lonely Heifers)";
+            macModel = @"Macintosh Plus / 512Ke v2 (Lonely Heifers)";
             codeName = @"Mr. T";
             comments = @"This ROM was the first revision and still had some bugs.\nv3 is more recommended.";
             emulator = vMacNormal;
@@ -148,7 +151,7 @@
             madeTest = YES;
             break;
         case 0x4D1F8172:
-            macModel = @"Macintosh Plus v3 (Loud Harmonicas)";
+            macModel = @"Macintosh Plus / 512Ke v3 (Loud Harmonicas)";
             codeName = @"Mr. T";
             comments = @"Best Mac Plus ROM, second revision from the original.\nGood for vMac.";
             emulator = vMacNormal;
@@ -161,12 +164,14 @@
         case 0xB2E362A8:
             macModel = @"Macintosh SE"; //no checksum
             codeName = @"Mac ±, PlusPlus, Aladdin, Freeport, Maui, Chablis, Midnight Run";
-            comments = @"";
+            comments = @"This ROM can be used with Mini vMac SE.";
+            emulator = vMacSpecial;
             // processor68000 = YES;
             break;
         case 0xB306E171:
             macModel = @"Macintosh SE FDHD"; //no checksum
             comments = @"FDHD stands for 'Floppy Disk High Density'\nThis mac was later called Macintosh SE Superdrive";
+            emulator = vMacSpecial;
             // processor68000 = YES;
             break;
         case 0x97851DB6:
@@ -188,6 +193,7 @@
             codeName = @"Spock, Stratos - Aurora, Cobra, Atlantic - Green Jade, Fafnir";
             //IIx = 16 MHz Motorola 68020 CPU and 68881 FPU of the II with a 68030 CPU and 68882 FPU (running at the same clock speed)
             comments = @"'32-bit dirty' ROM, since it has code using 24-bit addressing.\n'x' stands for the 68030 processor family, 'c' stands for 'compact'\nApple used 'SE/30' to avoid the acronym 'SEx'";
+            emulator = vMacSpecial;
             // processor68020 = YES;
             // processor68030 = YES;
             break;
@@ -205,7 +211,7 @@
             // processor68000 = YES;
             break;
         case 0x96645F9C:
-            macModel = @"Macintosh PowerBook 100";
+            macModel = @"Macintosh Portable (Backlit), PowerBook 100";
             comments = @"";
             // processor68030 = YES;
             // processor68040 = YES;
@@ -238,7 +244,7 @@
             // processor68040 = YES;
             break;
         case 0x3193670E: //Mysterious 1024KB version?
-            macModel = @"Macintosh Classic II";
+            macModel = @"Classic II, LC 550 TV, Performa 200, Performa 275, Performa 550, Performa 560";
             codeName = @"Montana, Apollo";
             comments = @"Emulation may require the FPU and AppleTalk may not be supported.";
             emulator = BasiliskII;
@@ -316,12 +322,12 @@
             // processor68030 = YES;
             break;
         case 0xEC904829:
-            macModel = @"Macintosh LC III";
+            macModel = @"Macintosh LC III (v1)";
             emulator = BasiliskII;
             // processor68030 = YES;
             break;
         case 0xECBBC41C:
-            macModel = @"Macintosh LCIII/LCIII+ or Performa 460";
+            macModel = @"Macintosh LC III, LC III+, LC 520, Performa 460, Performa 520 (v2)";
             emulator = BasiliskII;
             // processor68030 = YES;
             break;
@@ -333,18 +339,18 @@
             // processor68040 = YES;
             break;
         case 0xF1A6F343:
-            macModel = @"Quadra/Centris 610 or 650";
+            macModel = @"Quadra/Centris 610, Quadra 610 CD, Quadra 610 with DOS";
             emulator = BasiliskII;
             // processor68040 = YES;
             break;
         case 0xF1ACAD13:	// Mac Quadra 650
-            macModel = @"Quadra/Centris 610 or 650 or 800";
+            macModel = @"Quadra/Centris 650, Quadra 800";
             emulator = BasiliskII;
             // processor68040 = YES;
             madeTest = YES;
             break;
         case 0x0024D346:
-            macModel = @"Powerbook Duo 270C";
+            macModel = @"PowerBook Duo 270, PowerBook Duo 270c";
             // processor68030 = YES;
             break;
         case 0xEDE66CBD:
@@ -388,7 +394,17 @@
             //68LC040
             break;
         case 0x5BF10FD1:
-            macModel = @"Macintosh Quadra 660av or 840av";
+            macModel = @"Macintosh Quadra 660av or 840av (v1)";
+            // processor68040 = YES;
+            // processorPPC   = YES;
+            break;
+        case 0x87D3C814:
+            macModel = @"Macintosh Quadra 660av or 840av (v2)";
+            // processor68040 = YES;
+            // processorPPC   = YES;
+            break;
+        case 0xB57687A5:
+            macModel = @"PowerBook 550c";
             // processor68040 = YES;
             // processorPPC   = YES;
             break;
@@ -402,7 +418,7 @@
             //------------------------------------------------
             // 4MB
         case 0x9FEB69B3:
-            macModel = @"Power Mac 6100/7100/8100";
+            macModel = @"Power Mac 6100/7100/8100 (v1)";
             // processorPPC   = YES;
             emulator = Unsupported;
             madeTest = YES;
@@ -414,7 +430,7 @@
             madeTest = YES;
             break;
         case 0x9B7A3AAD:
-            macModel = @"Power Mac 7100 (newer)";
+            macModel = @"Power Mac 6100/7100/8100 (v2)";
             // processorPPC   = YES;
             emulator = Unsupported;
             madeTest = YES;
@@ -431,28 +447,42 @@
             emulator = Unsupported;
             madeTest = YES;
             break;
+        case 0x852CFBDF:
+            macModel = @"PowerBook 5300 and Assistive Technology Freestyle";
+            // processorPPC   = YES;
+            emulator = Unsupported;
+            madeTest = YES;
+            break;
         case 0x83C54F75:
-            macModel = @"PowerBook 2300 & PB5x0 PPC Upgrade"; //double-check
+            macModel = @"PowerBook Duo 2300 & PB5x0 PPC Upgrade"; //double-check
             // processorPPC   = YES;
             emulator = Unsupported;
             madeTest = YES;
             break;
         case 0x9630C68B:
-            macModel = @"Power Mac 7200/7500/8500/9500 v2";
+            macModel = @"Power Macintosh 7200/90, Power Macintosh 7500/100, Some Clones (v2)";
             comments = @"This ROM is unstable when used with some versions of SheepShaver. Try turning on the 'ignoresegv' option and JIT if you run into problems.";
             emulator = Sheepshaver;
             // processorPPC   = YES;
             madeTest = YES;
             break;
         case 0x96CD923D:
-            macModel = @"Power Mac 7200/7500/8500/9500 v1"; //unstable
+            macModel = @"Power Mac 7200/7500/8500/9500 (v1)"; //unstable
             comments = @"This ROM is unstable when used with SheepShaver. Try turning on the 'ignoresegv' option and/or disabling JIT if you run into problems.";
             emulator = Sheepshaver;
             // processorPPC   = YES;
             madeTest = YES;
             break;
         case 0x6F5724C0:
-            macModel = @"PowerMac/Performa 6400";
+            macModel = @"PowerMac/Performa 6400, Performa 6410, Performa 6420";
+            // processorPPC   = YES;
+            break;
+        case 0x575BE6BB:
+            macModel = @"Umax C500/600, Motorola Starmax 3000/4000/5500";
+            // processorPPC   = YES;
+            break;
+        case 0x276EC1F1:
+            macModel = @"PowerBook 2400, 3400";
             // processorPPC   = YES;
             break;
         case 0x83A21950:
@@ -465,27 +495,49 @@
             emulator = Sheepshaver;
             madeTest = YES;
             break;
+        case 0x58F03416:
+            macModel = @"Motorola 4400 “Cupid”/7220 ”Tanzania”";
+            // processorPPC   = YES;
+            emulator = Sheepshaver;
+            madeTest = YES;
+            break;
         case 0x960E4BE9:
-            macModel = @"Power Mac 7300/7600/8600/9600 v1";
+            macModel = @"Power Mac 7300/7600/8600/9600 (v1)";
             // processorPPC   = YES;
             emulator = Sheepshaver;
             madeTest = YES;
             break;
         case 0x960FC647:
-            macModel = @"Power Mac 8600 or 9600 v2";
+            macModel = @"Power Mac 8600 or 9600 (v2)";
             // processorPPC   = YES;
             emulator = Sheepshaver;
             madeTest = YES;
             break;
         case 0x78F57389:
-            macModel = @"Power Mac G3 v3";
+            macModel = @"Power Macintosh G3 (v3)";
+            // processorPPC   = YES;
+            emulator = Unsupported;
+            madeTest = YES;
+            break;
+        case 0x46001F1B:
+            macModel = @"Power Macintosh 9700 Prototype (bad dump)";
             // processorPPC   = YES;
             emulator = Unsupported;
             madeTest = YES;
             break;
         case 0x79D68D63:
-            macModel = @"Power Mac G3 desktop";
+            macModel = @"Power Macintosh G3 Desktop (Gossamer) (v1)";
             // processorPPC   = YES;
+            break;
+        case 0x78EB4234:
+            macModel = @"Power Macintosh G3 (v2)";
+            // processorPPC   = YES;
+            break;
+        case 0x2560F229:
+            macModel = @"PowerBook G3 (Kanga)";
+            // processorPPC   = YES;
+            emulator = Unsupported;
+            madeTest = YES;
             break;
         case 0xCBB01212:
             macModel = @"PowerBook G3 (Wallstreet)";
@@ -534,19 +586,19 @@
 
                     if ([md5Hash isEqualToString:@"e0fc03faa589ee066c411b4603e0ac89"]) {
                         macModel = @"Mac OS ROM 1.1";
-                        comments = @"";
+                        comments = @"From Mac OS 8.1 bundled on iMac, Rev A";
                         emulator = Sheepshaver;
                         madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"17b134a0d837518498c06579aa4ff053"]) {
                         macModel = @"Mac OS ROM 1.1.2";
-                        comments = @"";
+                        comments = @"From Mac OS 8.5 Retail CD, iMac Update 1.0";
                         emulator = Sheepshaver;
                         madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"133ef27acf2f360341870f212c7207d7"]) {
                         macModel = @"Mac OS ROM 1.1.5";
-                        comments = @"";
+                        comments = @"Mac OS 8.5 bundled on iMac, Rev B";
                         emulator = Sheepshaver;
                         madeTest = NO;
                     } else
@@ -576,37 +628,37 @@
                     } else
                     if ([md5Hash isEqualToString:@"dd26176882d14c39219aca668d7e97cb"]) {
                         macModel = @"Mac OS ROM 1.7.1";
-                        comments = @"";
+                        comments = @"From Mac OS 8.6 bundled on Power Mac G4 (PCI)";
                         emulator = Sheepshaver;
                         madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"02350bfe27c4dea1d2c13008efb3a036"]) {
                         macModel = @"Mac OS ROM 1.8.1";
-                        comments = @"";
+                        comments = @"From Mac OS 8.6 Power Mac G4 ROM 1.8.1 Update CD";
                         emulator = Sheepshaver;
                         madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"722fe6481b4d5c04e005e5ba000eb00e"]) {
                         macModel = @"Mac OS ROM 2.3.1";
-                        comments = @"";
+                        comments = @"From Mac OS 8.6 bundled on iMac (Slot Loading), iBook";
                         emulator = Sheepshaver;
                         madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"4bb3e019c5d7bfd5f3a296c13ad7f08f"]) {
                         macModel = @"Mac OS ROM 2.5.1";
-                        comments = @"ROM from the Mac OS 8.6 bundled on Power Mac G4 (AGP).\nThis was rare before being seeded as a torrent (still difficult to get, though).";
+                        comments = @"ROM from the Mac OS 8.6 bundled on Power Mac G4 (AGP).";
                         emulator = Sheepshaver;
                         madeTest = YES;
                     } else
                     if ([md5Hash isEqualToString:@"d387acd4503ce24e941f1131433bbc0f"]) {
                         macModel = @"Mac OS ROM 3.0";
-                        comments = @"";
+                        comments = @"Mac OS 9.0 Retail CD, bundled on Power Macintosh G3 (Blue and White), iMac, PowerBook G3 Bronze";
                         emulator = Sheepshaver;
                         madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"9e990cde6c30a3ab916c1390b29786c7"]) {
                         macModel = @"Mac OS ROM 3.1.1";
-                        comments = @"Mac OS 9.0 bundled on iBook or\nMac OS 9.0 bundled on Power Mac G4";
+                        comments = @"Mac OS 9.0 Retail CD, bundled on Power Macintosh G3 (Blue and White), iMac, PowerBook G3 Bronze";
                         emulator = Sheepshaver;
                         madeTest = NO;
                     } else
@@ -618,175 +670,187 @@
                     } else
                     if ([md5Hash isEqualToString:@"386ea1c81730f9b06bfc2e6c36be8d59"]) {
                         macModel = @"Mac OS ROM 3.5";
-                        comments = @"Mac OS 9.0.2 installed on PowerBook";
+                        comments = @"From Mac OS 9.0.2 bundled on Power Mac G4 (AGP), iBook, PowerBook (FireWire)";
                         emulator = Sheepshaver;
                         madeTest = NO;
                     } else
-                    if ([md5Hash isEqualToString:@"????????????????????????????????"]) {
+                    if ([md5Hash isEqualToString:@"71d3bd057139e3b0fb152ab905a12d2a"]) {
                         macModel = @"Mac OS ROM 3.6";
-                        comments = @"Mac OS 9.0.3 bundled on iMac";
+                        comments = @"From Mac OS 9.0.3 bundled on iMac (Slot Loading)";
                         emulator = Sheepshaver;
                         madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"8f388ccf6f96c58bda5ae83d207ca85a"]) {
                         macModel = @"Mac OS ROM 3.7";
                         comments = @"Mac OS 9.0.4 Retail/Software Update or\nMac OS 9.0.4 installed on PowerBook";
-                        emulator = Sheepshaver;
+                        emulator = SheepshaverQEMU;
                         madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"3f182e059a60546f93114ed3798d5751"]) {
                         macModel = @"Mac OS ROM 3.8";
                         comments = @"Extracted from Ethernet Update 1.0.\nVery clever!";
-                        emulator = Sheepshaver;
+                        emulator = SheepshaverQEMU;
                         madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"bf9f186ba2dcaaa0bc2b9762a4bf0c4a"]) {
                         macModel = @"Mac OS ROM 4.6.1";
                         comments = @"Mac OS 9.0.4 installed on iMac (2000)";
-                        emulator = Sheepshaver;
+                        emulator = SheepshaverQEMU;
                         madeTest = NO;
                     } else
-                    if ([md5Hash isEqualToString:@"????????????????????????????????"]) {
+                    if ([md5Hash isEqualToString:@"f66558f3c9416a6bb8d062c0343b3e69"]) {
                         macModel = @"Mac OS ROM 4.9.1";
-                        comments = @"Mac OS 9.0.4 installed on Power Mac G4";
-                        emulator = Sheepshaver;
+                        comments = @"From Mac OS 9.0.4 bundled on Power Mac G4 MP (Summer 2000) (CPU software 2.3), Power Mac G4 (Gigabit Ethernet)";
+                        emulator = SheepshaverQEMU;
                         madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"52ea9e30d59796ce8c4822eeeb0f543e"]) {
                         macModel = @"Mac OS ROM 5.2.1";
                         comments = @"Mac OS 9.0.4 installed on Power Mac G4 Cube";
-                        emulator = Sheepshaver;
+                        emulator = SheepshaverQEMU;
                         madeTest = NO;
                     } else
-                    if ([md5Hash isEqualToString:@"????????????????????????????????"]) {
+                    if ([md5Hash isEqualToString:@"ea03ebbfdff4febbff3a667deb921996"]) {
                         macModel = @"Mac OS ROM 5.3.1";
-                        comments = @"Mac OS 9.0.4 installed on iBook";
-                        emulator = Sheepshaver;
+                        comments = @"From Mac OS 9.0.4 bundled on iBook (Summer 2000) (CPU software 2.5)";
+                        emulator = SheepshaverQEMU;
                         madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"????????????????????????????????"]) {
                         macModel = @"Mac OS ROM 5.5.1";
-                        comments = @"Mac OS 9.0.4 installed on Power Mac G4";
-                        emulator = Sheepshaver;
+                        comments = @"From Mac OS 9.0.4 bundled on Power Mac G4 (with Radeon) (CPU software 2.6)";
+                        emulator = SheepshaverQEMU;
                         madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"5e9a959067e1261d19427f983dd10162"]) {
                         macModel = @"Mac OS ROM 6.1";
-                        comments = @"Mac OS 9.1 Update";
-                        emulator = Sheepshaver;
+                        comments = @"Mac OS 9.1 Update CD";
+                        emulator = QEMU;
                         madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"19d596fc3028612edb1553e4d2e0f345"]) {
                         macModel = @"Mac OS ROM 6.7.1";
-                        comments = @"Mac OS 9.1 installed on Power Mac G4";
-                        emulator = Sheepshaver;
+                        comments = @"Mac OS 9.1 bundled on Power Mac G4 (Digital Audio)";
+                        emulator = QEMU;
                         madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"14cd0b3d8a7e022620b815f4983269ce"]) {
                         macModel = @"Mac OS ROM 7.5.1";
-                        comments = @"Mac OS 9.1 installed on iMac (2001)";
-                        emulator = Unsupported;
+                        comments = @"Mac OS 9.1 bundled on iMac (Early 2001), iMac (Summer 2001), PowerBook G4";
+                        emulator = QEMU;
                         madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"28a08b4d5d5e4ab113c5fc1b25955a7c"]) {
                         macModel = @"Mac OS ROM 7.8.1";
-                        comments = @"";
-                        emulator = Unsupported;
+                        comments = @"Mac OS 9.1 bundled on iBook (Dual USB) (CPU Software 3.5)";
+                        emulator = QEMU;
                         madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"1486fe0b293e23125c00b9209435365c"]) {
                         macModel = @"Mac OS ROM 7.9.1";
-                        comments = @"";
-                        emulator = Unsupported;
+                        comments = @"Mac OS 9.1 bundled on PowerBook G4";
+                        emulator = QEMU;
                         madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"6fc4679862b2106055b1ce301822ffeb"]) {
                         macModel = @"Mac OS ROM 8.3.1";
-                        comments = @"Mac OS 9.2 installed on Power Mac G4 (QuickSilver)";
-                        emulator = Unsupported;
+                        comments = @"Mac OS 9.2 bundled on iMac (Summer 2001), Power Mac G4 (QuickSilver)";
+                        emulator = QEMU;
                         madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"f97d43821fea307578697a64b1705f8b"]) {
                         macModel = @"Mac OS ROM 8.4";
-                        comments = @"Mac OS 9.2.1 Update";
-                        emulator = Unsupported;
+                        comments = @"Mac OS 9.2.1 Retail CD, bundled on Power Mac G4 (QuickSilver)";
+                        emulator = QEMU;
                         madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"d81574f35e97a658eab99df52529251e"]) {
                         macModel = @"Mac OS ROM 8.6.1";
-                        comments = @"";
-                        emulator = Unsupported;
+                        comments = @"Mac OS 9.2.1 bundled on iBook G3 (Late 2001)";
+                        emulator = QEMU;
                         madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"97db5e70d05ab7568d8a1f7ddd3b901a"]) {
                         macModel = @"Mac OS ROM 8.7";
-                        comments = @"Mac OS 9.2.2 Update";
-                        emulator = Unsupported;
+                        comments = @"Mac OS 9.2.2 Update SMI";
+                        emulator = QEMU;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"fed4f785146d859d3c1b7fca42c07d9a"]) {
+                        macModel = @"Mac OS ROM 8.8";
+                        comments = @"Mac OS 9.2.2 Update CD";
+                        emulator = QEMU;
                         madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"65e3bc1fee886bbe1aabe0faa4b8cda2"]) {
                         macModel = @"Mac OS ROM 8.9.1";
-                        comments = @"";
-                        emulator = Unsupported;
+                        comments = @"Mac OS 9.2.2 bundled on iBook (CPU Software 4.4)";
+                        emulator = QEMU;
                         madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"66210b4f71df8a580eb175f52b9d0f88"]) {
                         macModel = @"Mac OS ROM 9.0.1";
-                        comments = @"Mac OS 9.2.2 installed on iMac (2001)";
-                        emulator = Unsupported;
+                        comments = @"Mac OS 9.2.2 bundled on iMac (Summer 2001), iMac (Flat Panel), Power Mac G4 (QuickSilver 2002) (CPU Software 4.5)";
+                        emulator = QEMU;
                         madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"c5f7aaaf28d7c7eac746e9f26b183816"]) {
                         macModel = @"Mac OS ROM 9.1.1";
-                        comments = @"From iMac G4 Restore CD.";
-                        emulator = Unsupported;
+                        comments = @"Mac OS 9.2.2 bundled on iMac G4 (CPU Software 4.8)";
+                        emulator = QEMU;
                         madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"13889037360fe1567c7e7f89807453b0"]) {
-                        macModel = @"Mac OS ROM 9.2.1f2";
-                        comments = @"";
-                        emulator = Unsupported;
+                        macModel = @"Mac OS ROM 9.2.1";
+                        comments = @"Mac OS 9.2.2 bundled on eMac (CPU Software 4.9)";
+                        emulator = QEMU;
+                        madeTest = NO;
+                    } else
+                    if ([md5Hash isEqualToString:@"e0a643f2cb441955c46b098c8fd1b21f"]) {
+                        macModel = @"Mac OS ROM 9.3.1";
+                        comments = @"Mac OS 9.2.2 bundled on PowerBook G4 (CPU Software 5.0)";
+                        emulator = QEMU;
                         madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"b36a5f1d814291a22457adfa2331b379"]) {
                         macModel = @"Mac OS ROM 9.5.1";
-                        comments = @"Mac OS 9.2.2 installed on iMac (17-inch Flat Panel)";
-                        emulator = Unsupported;
+                        comments = @"Mac OS 9.2.2 bundled on iMac (17-inch Flat Panel)";
+                        emulator = QEMU;
                         madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"3c08de22aeaa7d7fdb14df848fbaa90d"]) {
                         macModel = @"Mac OS ROM 9.6.1";
-                        comments = @"";
-                        emulator = Unsupported;
+                        comments = @"Mac OS 9.2.2 Update CD (CPU Software 5.4)";
+                        emulator = QEMU;
                         madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"e74f8c6bb52a641b856d821be7a65275"]) {
                         macModel = @"Mac OS ROM 9.7.1";
-                        comments = @"";
-                        emulator = Unsupported;
+                        comments = @"Mac OS 9.2.2 bundled on PowerBook (Titanium) (CPU Software 5.6)";
+                        emulator = QEMU;
                         madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"4e8d07f8e0d4af6d06336688013972c3"]) {
                         macModel = @"Mac OS ROM 9.8.1";
-                        comments = @"";
-                        emulator = Unsupported;
+                        comments = @"Mac OS 9.2.2 (Unknown)";
+                        emulator = QEMU;
                         madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"1fb3de4d87889c26068dd88779dc20e2"]) {
                         macModel = @"Mac OS ROM 10.1.1";
-                        comments = @"";
-                        emulator = Unsupported;
+                        comments = @"Mac OS 9.2.2 bundled on eMac 800MHz (CPU Software 5.7)";
+                        emulator = QEMU;
                         madeTest = NO;
                     } else
                     if ([md5Hash isEqualToString:@"48fd7a428aaebeaec2dea347795a4910"]) {
                         macModel = @"Mac OS ROM 10.2.1";
-                        comments = @"";
-                        emulator = Unsupported;
+                        comments = @"Mac OS 9.2.2 Retail International CD";
+                        emulator = QEMU;
                         madeTest = NO;
                     } else {
-                        macModel = @"Unsupported ROM size.";
+                        macModel = @"Unsupported ROM.";
                         comments = @"Size should be 64KB, 128KB, 256KB, 512KB, 1MB, 2MB, 3MB or 4MB.";
-                        emulator = Unsupported;
+                        emulator = QEMU;
                         newWorldRom = NO;
                     }
                     break;
