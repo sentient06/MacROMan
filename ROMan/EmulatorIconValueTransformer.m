@@ -3,6 +3,7 @@
 //  Mac ROMan
 //
 //  Created by Giancarlo Mariot on 19/09/2013.
+//  Updated by Em Adespoton on 30/10/2018.
 //  Copyright (c) 2013 Giancarlo Mariot. All rights reserved.
 //
 //------------------------------------------------------------------------------
@@ -53,7 +54,9 @@
     // 3 = BasiliskII
     // 4 = vMacBasilisk
     // 5 = Sheepshaver
-    // 6 = Unsupported
+    // 6 = QEMU
+    // 7 = SheepshaverQEMU
+    // 8 = Unsupported
     
     switch (iconValue) {
         case vMacNormal:
@@ -63,8 +66,12 @@
         case BasiliskII:
             return [NSImage imageNamed:@"BasiliskII.png"];
         case vMacBasilisk:
-            return [NSImage imageNamed:@"Basilisk.png"];
+            return [NSImage imageNamed:@"BasiliskII.png"];
         case Sheepshaver:
+            return [NSImage imageNamed:@"Sheepshaver.png"];
+        case QEMU:
+            return [NSImage imageNamed:@"QEMU.png"];
+        case SheepshaverQEMU:
             return [NSImage imageNamed:@"Sheepshaver.png"];
         case Unsupported:
             return [NSImage imageNamed:@"None.png"];

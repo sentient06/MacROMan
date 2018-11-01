@@ -3,6 +3,7 @@
 //  Mac ROMan
 //
 //  Created by Giancarlo Mariot on 23/09/2013.
+//  Updated by Em Adespoton on 30/10/2018.
 //  Copyright (c) 2013 Giancarlo Mariot. All rights reserved.
 //
 //------------------------------------------------------------------------------
@@ -58,6 +59,10 @@
             return @"Mini vMac & Basilisk II";
         case Sheepshaver:
             return @"Sheepshaver";
+        case QEMU:
+            return @"QEMU";
+        case SheepshaverQEMU:
+            return @"Sheepshaver & QEMU";
         case Unsupported:
             return @"Unsupported";
             

@@ -3,6 +3,7 @@
 //  Mac ROMan
 //
 //  Created by Giancarlo Mariot on 25/10/2013.
+//  Updated by Em Adespoton on 30/10/2018.
 //  Copyright (c) 2013 Giancarlo Mariot. All rights reserved.
 //
 //------------------------------------------------------------------------------
@@ -38,8 +39,10 @@ enum EmulatorTypes {
   , BasiliskII   = 3
   , vMacBasilisk = 4
   , Sheepshaver  = 5
-  , Unsupported  = 6
-  , Unknown      = 7
+  , QEMU         = 6
+  , SheepshaverQEMU = 7
+  , Unsupported  = 8
+  , Unknown      = 9
 };
 
 @interface RomFileController : NSObject {
