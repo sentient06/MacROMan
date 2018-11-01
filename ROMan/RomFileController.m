@@ -716,6 +716,12 @@
                         emulator = SheepshaverQEMU;
                         madeTest = NO;
                     } else
+                    if ([md5Hash isEqualToString:@"52ea9e30d59796ce8c4822eeeb0f543e"]) {
+                        macModel = @"Mac OS ROM 5.5.1";
+                        comments = @"Mac OS 9.0.4 International bundled on Power Mac G4 Cube (CPU software 2.6)";
+                        emulator = SheepshaverQEMU;
+                        madeTest = NO;
+                        } else
                     if ([md5Hash isEqualToString:@"????????????????????????????????"]) {
                         macModel = @"Mac OS ROM 5.5.1";
                         comments = @"From Mac OS 9.0.4 bundled on Power Mac G4 (with Radeon) (CPU software 2.6)";
