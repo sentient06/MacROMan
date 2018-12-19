@@ -66,6 +66,7 @@
     
     NSString * kind = (NSString *)UTTypeCopyDescription((CFStringRef)@"public.rom");
     
+    NSLog(@"Trying to identify file of type '%@'", kind);
     
     if ([kind isEqualToString:@"ROM Image"])
         return YES;
@@ -93,10 +94,10 @@
  */
 - (void)parseFile:(NSString *)filePath {
     
-    if (![RomFileController validateFile:filePath]) {
-        NSLog(@"File is not valid!");
-        return;
-    }
+//    if (![RomFileController validateFile:filePath]) {
+//        NSLog(@"File is not valid!");
+//        return;
+//    }
     
     BOOL newWorldRom = NO;
     NSData * data = [NSData dataWithContentsOfFile:filePath];
@@ -774,7 +775,7 @@
                     } else
                     if ([md5Hash isEqualToString:@"1fb3de4d87889c26068dd88779dc20e2"]) {
                         macModel = @"Mac OS ROM 10.1.1";
-                        comments = @"";
+                        comments = @"ROM from the bootable eMac 800MHz restore disc";
                         emulator = Unsupported;
                         madeTest = NO;
                     } else
