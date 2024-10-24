@@ -21,6 +21,8 @@
 		81451AC514FB973000644AF4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81451AC314FB973000644AF4 /* MainMenu.xib */; };
 		81585DF9182453C2002C277F /* ROMImageIcon2MountainLion.icns in Resources */ = {isa = PBXBuildFile; fileRef = 81585DF7182453C2002C277F /* ROMImageIcon2MountainLion.icns */; };
 		81585DFA182453C2002C277F /* ROMImageIcon2SnowLeopard.icns in Resources */ = {isa = PBXBuildFile; fileRef = 81585DF8182453C2002C277F /* ROMImageIcon2SnowLeopard.icns */; };
+		815F7E692CCAAD1E0073917E /* Unknown.png in Resources */ = {isa = PBXBuildFile; fileRef = 815F7E682CCAAD1E0073917E /* Unknown.png */; };
+		815F7E6B2CCAADA40073917E /* QEMU.png in Resources */ = {isa = PBXBuildFile; fileRef = 815F7E6A2CCAADA40073917E /* QEMU.png */; };
 		8160F98617E9A4A400DED4C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8160F98517E9A4A400DED4C9 /* AppDelegate.m */; };
 		81720EA81829093C0090B5FD /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 81720EA71829093C0090B5FD /* NSString+MD5.m */; };
 		81720EAB18290A990090B5FD /* NSData+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 81720EAA18290A990090B5FD /* NSData+MD5.m */; };
@@ -74,6 +76,8 @@
 		81451AC414FB973000644AF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		81585DF7182453C2002C277F /* ROMImageIcon2MountainLion.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ROMImageIcon2MountainLion.icns; sourceTree = "<group>"; };
 		81585DF8182453C2002C277F /* ROMImageIcon2SnowLeopard.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ROMImageIcon2SnowLeopard.icns; sourceTree = "<group>"; };
+		815F7E682CCAAD1E0073917E /* Unknown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unknown.png; sourceTree = "<group>"; };
+		815F7E6A2CCAADA40073917E /* QEMU.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = QEMU.png; sourceTree = "<group>"; };
 		8160F98517E9A4A400DED4C9 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		81720EA61829093C0090B5FD /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
 		81720EA71829093C0090B5FD /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
@@ -189,6 +193,8 @@
 				818972A417EB3D6200BDE239 /* BasiliskII.png */,
 				818972A517EB3D6200BDE239 /* None.png */,
 				818972A617EB3D6200BDE239 /* Sheepshaver.png */,
+				815F7E682CCAAD1E0073917E /* Unknown.png */,
+				815F7E6A2CCAADA40073917E /* QEMU.png */,
 			);
 			name = Icons;
 			sourceTree = "<group>";
@@ -261,6 +267,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 81451A9F14FB972F00644AF4;
@@ -279,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81451AB914FB973000644AF4 /* InfoPlist.strings in Resources */,
+				815F7E6B2CCAADA40073917E /* QEMU.png in Resources */,
 				81451ABF14FB973000644AF4 /* Credits.rtf in Resources */,
 				81451AC514FB973000644AF4 /* MainMenu.xib in Resources */,
 				81A684A0151A60BB000B4528 /* RomImageDocument.icns in Resources */,
@@ -292,6 +300,7 @@
 				813231C017F0580C00C4C7E4 /* index.html in Resources */,
 				813231C217F0580C00C4C7E4 /* MacRomanHelp.png in Resources */,
 				81585DF9182453C2002C277F /* ROMImageIcon2MountainLion.icns in Resources */,
+				815F7E692CCAAD1E0073917E /* Unknown.png in Resources */,
 				81585DFA182453C2002C277F /* ROMImageIcon2SnowLeopard.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,7 +420,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ROMan/Mac ROMan-Prefix.pch";
 				INFOPLIST_FILE = "ROMan/ROMan-Info.plist";
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "Mac ROMan";
 				WRAPPER_EXTENSION = app;
 			};

@@ -63,9 +63,12 @@
             return @"QEMU";
         case SheepshaverQEMU:
             return @"Sheepshaver & QEMU";
+        case BasiliskIIQEMU:
+            return @"Basilisk II & QEMU";
         case Unsupported:
             return @"Unsupported";
-            
+        case Unknown:
+            return @"Unknown";
     }
     
     return nil;

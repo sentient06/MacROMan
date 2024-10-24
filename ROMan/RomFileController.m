@@ -345,7 +345,7 @@
             break;
         case 0xF1ACAD13:	// Mac Quadra 650
             macModel = @"Quadra/Centris 650, Quadra 800";
-            emulator = BasiliskII;
+            emulator = BasiliskIIQEMU;
             // processor68040 = YES;
             madeTest = YES;
             break;
@@ -482,7 +482,7 @@
             // processorPPC   = YES;
             break;
         case 0x276EC1F1:
-            macModel = @"PowerBook 2400, 3400";
+            macModel = @"PowerBook 2400, 3400, 3400c (Hooper)";
             // processorPPC   = YES;
             break;
         case 0x83A21950:

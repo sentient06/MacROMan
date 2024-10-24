@@ -34,15 +34,16 @@
 #import <Foundation/Foundation.h>
 
 enum EmulatorTypes {
-    vMacNormal   = 1
-  , vMacSpecial  = 2
-  , BasiliskII   = 3
-  , vMacBasilisk = 4
-  , Sheepshaver  = 5
-  , QEMU         = 6
+    vMacNormal      = 1
+  , vMacSpecial     = 2
+  , BasiliskII      = 3
+  , vMacBasilisk    = 4
+  , Sheepshaver     = 5
+  , QEMU            = 6
   , SheepshaverQEMU = 7
-  , Unsupported  = 8
-  , Unknown      = 9
+  , BasiliskIIQEMU  = 8
+  , Unsupported     = 9
+  , Unknown         = 10
 };
 
 @interface RomFileController : NSObject {

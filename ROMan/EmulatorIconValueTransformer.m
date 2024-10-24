@@ -73,8 +73,12 @@
             return [NSImage imageNamed:@"QEMU.png"];
         case SheepshaverQEMU:
             return [NSImage imageNamed:@"Sheepshaver.png"];
+        case BasiliskIIQEMU:
+            return [NSImage imageNamed:@"BasiliskII.png"];
         case Unsupported:
             return [NSImage imageNamed:@"None.png"];
+        case Unknown:
+            return [NSImage imageNamed:@"Unknown.png"];
     }
     
     return nil;
